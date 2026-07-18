@@ -1,42 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { RefreshCw, Zap, Filter, Search, X } from 'lucide-react';
 
-const fallbackStocks = [
-  { id: 'RELIANCE.NS', name: 'Reliance Industries', sector: 'Energy', rsRating: 89, sectorBreadth: 72, sectorStatus: 'Broadening leadership', price: 2930, change24h: 1.8, deliveryPercent: 68, rsi: 63, adx: 31, trendStrong: true, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 2.4, prox52WkHigh: 0.96 },
-  { id: 'TCS.NS', name: 'Tata Consultancy Services', sector: 'IT', rsRating: 76, sectorBreadth: 58, sectorStatus: 'Rotation steady', price: 3950, change24h: 0.6, deliveryPercent: 54, rsi: 57, adx: 24, trendStrong: true, bollingerSqueeze: false, institutionalBuying: false, volumeSpikeRatio: 1.2, prox52WkHigh: 0.9 },
-  { id: 'HDFCBANK.NS', name: 'HDFC Bank', sector: 'Financials', rsRating: 82, sectorBreadth: 63, sectorStatus: 'Banking momentum', price: 1710, change24h: -0.4, deliveryPercent: 61, rsi: 49, adx: 22, trendStrong: false, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.8, prox52WkHigh: 0.92 },
-  { id: 'INFY.NS', name: 'Infosys', sector: 'IT', rsRating: 71, sectorBreadth: 49, sectorStatus: 'Under accumulation', price: 1620, change24h: 1.1, deliveryPercent: 57, rsi: 45, adx: 19, trendStrong: false, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.3, prox52WkHigh: 0.88 },
-  { id: 'ICICIBANK.NS', name: 'ICICI Bank', sector: 'Financials', rsRating: 84, sectorBreadth: 66, sectorStatus: 'Financial strength', price: 1280, change24h: 0.3, deliveryPercent: 62, rsi: 56, adx: 26, trendStrong: true, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.6, prox52WkHigh: 0.94 },
-  { id: 'SBIN.NS', name: 'State Bank of India', sector: 'Financials', rsRating: 79, sectorBreadth: 61, sectorStatus: 'Steady banking flow', price: 780, change24h: -0.8, deliveryPercent: 59, rsi: 51, adx: 21, trendStrong: false, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.4, prox52WkHigh: 0.9 },
-  { id: 'LT.NS', name: 'Larsen & Toubro', sector: 'Capital Goods', rsRating: 77, sectorBreadth: 57, sectorStatus: 'Infra rotation', price: 3680, change24h: 1.2, deliveryPercent: 58, rsi: 54, adx: 23, trendStrong: true, bollingerSqueeze: true, institutionalBuying: false, volumeSpikeRatio: 1.5, prox52WkHigh: 0.91 },
-  { id: 'BHARTIARTL.NS', name: 'Bharti Airtel', sector: 'Telecommunication', rsRating: 81, sectorBreadth: 64, sectorStatus: 'Telecom breadth', price: 1600, change24h: 0.7, deliveryPercent: 60, rsi: 58, adx: 25, trendStrong: true, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.7, prox52WkHigh: 0.93 },
-  { id: 'ITC.NS', name: 'ITC', sector: 'Consumer Goods', rsRating: 74, sectorBreadth: 53, sectorStatus: 'Defensive rotation', price: 460, change24h: 0.2, deliveryPercent: 56, rsi: 50, adx: 20, trendStrong: false, bollingerSqueeze: false, institutionalBuying: false, volumeSpikeRatio: 1.1, prox52WkHigh: 0.89 },
-  { id: 'SUNPHARMA.NS', name: 'Sun Pharma', sector: 'Healthcare', rsRating: 73, sectorBreadth: 55, sectorStatus: 'Healthcare resilience', price: 1800, change24h: -0.6, deliveryPercent: 55, rsi: 47, adx: 18, trendStrong: false, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.2, prox52WkHigh: 0.87 },
-];
-
-const normalizeStock = (stock = {}) => ({
-  id: stock.id ?? '',
-  name: stock.name ?? 'Unknown',
-  sector: stock.sector ?? 'Unknown',
-  rsRating: Number(stock.rsRating ?? 0),
-  sectorBreadth: Number(stock.sectorBreadth ?? 0),
-  sectorStatus: stock.sectorStatus ?? 'Awaiting data',
-  price: Number(stock.price ?? 0),
-  change24h: Number(stock.change24h ?? 0),
-  deliveryPercent: Number(stock.deliveryPercent ?? 0),
-  rsi: Number(stock.rsi ?? 0),
-  adx: Number(stock.adx ?? 0),
-  trendStrong: Boolean(stock.trendStrong),
-  bollingerSqueeze: Boolean(stock.bollingerSqueeze),
-  institutionalBuying: Boolean(stock.institutionalBuying),
-  volumeSpikeRatio: Number(stock.volumeSpikeRatio ?? 0),
-  prox52WkHigh: Number(stock.prox52WkHigh ?? 0),
-});
-
 export default function App() {
-  const [stocks, setStocks] = useState(() => fallbackStocks.map(normalizeStock));
+  const [stocks, setStocks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [apiStatus, setApiStatus] = useState('Loaded 10 demo stocks');
+  const [apiStatus, setApiStatus] = useState('Initializing Quant Engine...');
   const [sortField, setSortField] = useState('rsRating');
   const [sortDirection, setSortDirection] = useState('desc');
   const [activeTab, setActiveTab] = useState('ALL');
@@ -44,15 +12,26 @@ export default function App() {
   // --- NEW STATE: REAL-TIME TEXT SEARCH INTERFACE ---
   const [searchQuery, setSearchQuery] = useState('');
 
-  const reloadDemoData = () => {
+  const fetchStockData = async (force = false) => {
     setIsLoading(true);
-    setStocks(fallbackStocks.map(normalizeStock));
-    setApiStatus('Loaded 10 demo stocks');
-    setTimeout(() => setIsLoading(false), 120);
+    setApiStatus('Scanning Nifty 500 Market Breadth...');
+    try {
+      const url = `/api/scan-rally${force ? '?force_refresh=true' : ''}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      setStocks(data);
+      setApiStatus('Live Institutional Quant Feed');
+    } catch (error) {
+      console.warn("Quant API disconnected.", error);
+      setApiStatus('Offline (Check Server Status)');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    reloadDemoData();
+    fetchStockData();
   }, []);
 
   // --- UPGRADED RALLY SCORING ENGINE ---
@@ -99,9 +78,9 @@ export default function App() {
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
       filtered = filtered.filter(s => 
-        (s.name || '').toLowerCase().includes(query) ||
-        (s.id || '').toLowerCase().includes(query) ||
-        (s.sector || '').toLowerCase().includes(query)
+        s.name.toLowerCase().includes(query) ||
+        s.id.toLowerCase().includes(query) ||
+        s.sector.toLowerCase().includes(query)
       );
     }
 
@@ -113,7 +92,7 @@ export default function App() {
       if (typeof aValue === 'string') {
         return sortDirection === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
       }
-      return sortDirection === 'asc' ? (Number(aValue) || 0) - (Number(bValue) || 0) : (Number(bValue) || 0) - (Number(aValue) || 0);
+      return sortDirection === 'asc' ? (aValue || 0) - (bValue || 0) : (bValue || 0) - (aValue || 0);
     });
   }, [stocks, activeTab, searchQuery, sortField, sortDirection]);
 
@@ -151,12 +130,12 @@ export default function App() {
           </div>
 
           <button
-            onClick={reloadDemoData}
+            onClick={() => fetchStockData(true)}
             disabled={isLoading}
             className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white px-4 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-indigo-500/20 transition-all cursor-pointer disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-            {isLoading ? 'Refreshing Feed...' : 'Reload Feed'}
+            {isLoading ? 'Crunching Breadth...' : 'Force Recalculate'}
           </button>
         </div>
 
@@ -186,9 +165,9 @@ export default function App() {
                 <span>{tab.label}</span>
                 <span className={`text-[10px] px-1 py-0.2 rounded ${activeTab === tab.id ? 'bg-indigo-700 text-indigo-100' : 'bg-slate-900 text-slate-500'}`}>
                   {tab.id === 'ALL' ? stocks.length : stocks.filter(s => {
-                    if (tab.id === 'LAUNCHPAD') return Boolean(s.bollingerSqueeze) && Number(s.deliveryPercent) >= 60.0 && Number(s.rsi) >= 48 && Number(s.rsi) <= 65;
-                    if (tab.id === 'MOMENTUM') return Number(s.rsRating) >= 80 && (Boolean(s.trendStrong) || Number(s.adx) >= 25) && Number(s.volumeSpikeRatio) >= 1.5 && Number(s.prox52WkHigh) >= 0.92;
-                    if (tab.id === 'DIP_BUY') return Number(s.rsi) <= 40.0 && Number(s.deliveryPercent) >= 60.0 && Number(s.rsRating) >= 60;
+                    if (tab.id === 'LAUNCHPAD') return s.bollingerSqueeze && s.deliveryPercent >= 60.0 && s.rsi >= 48 && s.rsi <= 65;
+                    if (tab.id === 'MOMENTUM') return s.rsRating >= 80 && (s.trendStrong || s.adx >= 25) && s.volumeSpikeRatio >= 1.5 && s.prox52WkHigh >= 0.92;
+                    if (tab.id === 'DIP_BUY') return s.rsi <= 40.0 && s.deliveryPercent >= 60.0 && s.rsRating >= 60;
                     return true;
                   }).length}
                 </span>
@@ -253,7 +232,7 @@ export default function App() {
                         <td className="py-3.5 px-4">
                           <div className="font-bold text-white flex items-center gap-1.5">
                             {stock.name}
-                            <span className="text-[10px] text-slate-500 font-mono">({(stock.id || '').replace('.NS', '')})</span>
+                            <span className="text-[10px] text-slate-500 font-mono">({stock.id.replace('.NS', '')})</span>
                           </div>
                           <div className="text-xs text-indigo-400 font-semibold mt-0.5">{stock.sector}</div>
                         </td>
@@ -288,9 +267,9 @@ export default function App() {
 
                         {/* Price Fields */}
                         <td className="py-3.5 px-4 font-mono">
-                          <div className="text-slate-100 font-bold">₹{Number(stock.price || 0).toLocaleString('en-IN')}</div>
-                          <div className={`text-xs ${Number(stock.change24h || 0) >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                            {Number(stock.change24h || 0) >= 0 ? '+' : ''}{Number(stock.change24h || 0)}%
+                          <div className="text-slate-100 font-bold">₹{stock.price.toLocaleString('en-IN')}</div>
+                          <div className={`text-xs ${stock.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            {stock.change24h >= 0 ? '+' : ''}{stock.change24h}%
                           </div>
                         </td>
 
