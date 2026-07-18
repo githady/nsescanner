@@ -96,9 +96,9 @@ const normalizeStock = (stock = {}) => ({
 });
 
 export default function App() {
-  const [stocks, setStocks] = useState([]);
+  const [stocks, setStocks] = useState(() => fallbackStocks.map(normalizeStock));
   const [isLoading, setIsLoading] = useState(false);
-  const [apiStatus, setApiStatus] = useState('Initializing Quant Engine...');
+  const [apiStatus, setApiStatus] = useState('Live demo feed');
   const [sortField, setSortField] = useState('rsRating');
   const [sortDirection, setSortDirection] = useState('desc');
   const [activeTab, setActiveTab] = useState('ALL');
@@ -106,29 +106,15 @@ export default function App() {
   // --- NEW STATE: REAL-TIME TEXT SEARCH INTERFACE ---
   const [searchQuery, setSearchQuery] = useState('');
 
-  const fetchStockData = async (force = false) => {
+  const reloadDemoData = () => {
     setIsLoading(true);
-    setApiStatus('Scanning Nifty 500 Market Breadth...');
-    try {
-      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://backendnse.azurewebsites.net';
-      const url = `${apiBaseUrl}/api/scan-rally${force ? '?force_refresh=true' : ''}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      const normalized = Array.isArray(data) ? data.map(normalizeStock) : [];
-      setStocks(normalized);
-      setApiStatus('Live Institutional Quant Feed');
-    } catch (error) {
-      console.warn('Quant API disconnected.', error);
-      setStocks(fallbackStocks.map(normalizeStock));
-      setApiStatus('Offline (Using built-in demo feed)');
-    } finally {
-      setIsLoading(false);
-    }
+    setStocks(fallbackStocks.map(normalizeStock));
+    setApiStatus('Live demo feed');
+    setTimeout(() => setIsLoading(false), 150);
   };
 
   useEffect(() => {
-    fetchStockData();
+    reloadDemoData();
   }, []);
 
   // --- UPGRADED RALLY SCORING ENGINE ---
@@ -227,12 +213,12 @@ export default function App() {
           </div>
 
           <button
-            onClick={() => fetchStockData(true)}
+            onClick={reloadDemoData}
             disabled={isLoading}
             className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white px-4 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-indigo-500/20 transition-all cursor-pointer disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-            {isLoading ? 'Crunching Breadth...' : 'Force Recalculate'}
+            {isLoading ? 'Refreshing Demo Feed...' : 'Reload Demo Feed'}
           </button>
         </div>
 

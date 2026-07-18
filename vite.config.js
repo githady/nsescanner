@@ -2,16 +2,15 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
-  base: process.env.VITE_BASE || '/',
+const repoName = 'nsescanner'
+
+export default defineConfig(({ mode }) => ({
+  base: mode === 'development' ? '/' : `/${repoName}/`,
   plugins: [
     react(),
     tailwindcss(),
   ],
   server: {
     port: 8000,
-    proxy: {
-      '/api': 'https://githady.github.io/nsescanner/',
-    },
   },
-})
+}))
