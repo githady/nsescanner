@@ -29,6 +29,9 @@ jobs:
           mkdir -p node_modules/@rollup/rollup-linux-x64-gnu
           printf "module.exports = require('rollup');" > node_modules/@rollup/rollup-linux-x64-gnu/index.js
 
+      - name: Ensure Rollup 3.x is installed (one-time override)
+        run: npm i rollup@3 --no-save
+
       - name: Build
         run: ROLLUP_DISABLE_NATIVE=1 node ./node_modules/vite/bin/vite.js build
         env:
