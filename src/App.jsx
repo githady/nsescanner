@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { RefreshCw, Zap, Filter, Search, X } from 'lucide-react';
+import { loadStocks } from './data';
 
 export default function App() {
   const [stocks, setStocks] = useState([]);
@@ -16,15 +17,12 @@ export default function App() {
     setIsLoading(true);
     setApiStatus('Scanning Nifty 500 Market Breadth...');
     try {
-      const url = `/api/scan-rally${force ? '?force_refresh=true' : ''}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
+      const data = await loadStocks();
       setStocks(data);
-      setApiStatus('Live Institutional Quant Feed');
+      setApiStatus(data.length ? 'Live Institutional Quant Feed' : 'Offline (Check Data Source)');
     } catch (error) {
-      console.warn("Quant API disconnected.", error);
-      setApiStatus('Offline (Check Server Status)');
+      console.warn('Quant data unavailable.', error);
+      setApiStatus('Offline (Check Data Source)');
     } finally {
       setIsLoading(false);
     }
