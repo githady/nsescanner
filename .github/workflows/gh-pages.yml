@@ -22,7 +22,7 @@ jobs:
         run: npm ci --no-optional
 
       - name: Build
-        run: node ./node_modules/vite/bin/vite.js build
+        run: ROLLUP_DISABLE_NATIVE=1 node ./node_modules/vite/bin/vite.js build
         env:
           GITHUB_PAGES: 'true'
 
