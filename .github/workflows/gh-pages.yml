@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies (deterministic)
-        run: npm ci
+      - name: Install dependencies (deterministic, skip optional)
+        run: npm ci --no-optional
 
       - name: Build
         run: node ./node_modules/vite/bin/vite.js build
