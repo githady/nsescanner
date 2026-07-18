@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (clean, no optional)
+        run: |
+          rm -rf node_modules package-lock.json || true
+          npm cache clean --force || true
+          npm install --no-optional
 
       - name: Build
         run: node ./node_modules/vite/bin/vite.js build
