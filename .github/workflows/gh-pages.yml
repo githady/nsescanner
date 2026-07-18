@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    container: node:18-bullseye
     env:
       ROLLUP_DISABLE_NATIVE: '1'
     steps:
