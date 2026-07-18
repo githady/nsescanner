@@ -29,13 +29,7 @@ jobs:
       - name: Install dependencies (deterministic, skip optional)
         run: npm ci --no-optional
 
-      - name: Create rollup native stub (one-time workaround)
-        run: |
-          mkdir -p node_modules/@rollup/rollup-linux-x64-gnu
-          printf "module.exports = require('rollup');" > node_modules/@rollup/rollup-linux-x64-gnu/index.js
-
-      - name: Ensure Rollup 3.x is installed (one-time override)
-        run: npm i rollup@3 --no-save
+      # Rollup is pinned in devDependencies (rollup@3) to avoid native binding issues.
 
       - name: Build
         run: ROLLUP_DISABLE_NATIVE=1 node ./node_modules/vite/bin/vite.js build
