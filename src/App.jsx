@@ -1,40 +1,18 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { RefreshCw, Zap, Filter, Search, X } from 'lucide-react';
 
-const parseCsv = (text) => {
-  const lines = text.trim().split(/\r?\n/).filter(Boolean);
-  if (lines.length < 2) return [];
-
-  const headers = lines[0].split(',').map((h) => h.trim());
-  return lines.slice(1).map((line) => {
-    const values = line.split(',');
-    const row = {};
-    headers.forEach((header, index) => {
-      row[header] = values[index]?.trim() || '';
-    });
-
-    return {
-      id: `${row.Symbol || 'STOCK'}.NS`,
-      name: row['Company Name'] || row.Symbol || 'Unknown',
-      sector: row.Industry || 'Unknown',
-      rsRating: 70 + ((row.Symbol?.length || 0) % 20),
-      sectorBreadth: 45 + ((row.Symbol?.length || 0) % 30),
-      sectorStatus: 'CSV-backed universe',
-      price: 100 + ((row.Symbol?.length || 0) % 200) * 10,
-      change24h: -2 + ((row.Symbol?.length || 0) % 5),
-      deliveryPercent: 50 + ((row.Symbol?.length || 0) % 20),
-      rsi: 45 + ((row.Symbol?.length || 0) % 25),
-      adx: 15 + ((row.Symbol?.length || 0) % 20),
-      trendStrong: (row.Symbol?.length || 0) % 3 === 0,
-      bollingerSqueeze: (row.Symbol?.length || 0) % 4 === 0,
-      institutionalBuying: (row.Symbol?.length || 0) % 5 === 0,
-      volumeSpikeRatio: 1 + ((row.Symbol?.length || 0) % 4),
-      prox52WkHigh: 0.8 + ((row.Symbol?.length || 0) % 10) / 20,
-    };
-  });
-};
-
-const fallbackStocks = [];
+const fallbackStocks = [
+  { id: 'RELIANCE.NS', name: 'Reliance Industries', sector: 'Energy', rsRating: 89, sectorBreadth: 72, sectorStatus: 'Broadening leadership', price: 2930, change24h: 1.8, deliveryPercent: 68, rsi: 63, adx: 31, trendStrong: true, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 2.4, prox52WkHigh: 0.96 },
+  { id: 'TCS.NS', name: 'Tata Consultancy Services', sector: 'IT', rsRating: 76, sectorBreadth: 58, sectorStatus: 'Rotation steady', price: 3950, change24h: 0.6, deliveryPercent: 54, rsi: 57, adx: 24, trendStrong: true, bollingerSqueeze: false, institutionalBuying: false, volumeSpikeRatio: 1.2, prox52WkHigh: 0.9 },
+  { id: 'HDFCBANK.NS', name: 'HDFC Bank', sector: 'Financials', rsRating: 82, sectorBreadth: 63, sectorStatus: 'Banking momentum', price: 1710, change24h: -0.4, deliveryPercent: 61, rsi: 49, adx: 22, trendStrong: false, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.8, prox52WkHigh: 0.92 },
+  { id: 'INFY.NS', name: 'Infosys', sector: 'IT', rsRating: 71, sectorBreadth: 49, sectorStatus: 'Under accumulation', price: 1620, change24h: 1.1, deliveryPercent: 57, rsi: 45, adx: 19, trendStrong: false, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.3, prox52WkHigh: 0.88 },
+  { id: 'ICICIBANK.NS', name: 'ICICI Bank', sector: 'Financials', rsRating: 84, sectorBreadth: 66, sectorStatus: 'Financial strength', price: 1280, change24h: 0.3, deliveryPercent: 62, rsi: 56, adx: 26, trendStrong: true, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.6, prox52WkHigh: 0.94 },
+  { id: 'SBIN.NS', name: 'State Bank of India', sector: 'Financials', rsRating: 79, sectorBreadth: 61, sectorStatus: 'Steady banking flow', price: 780, change24h: -0.8, deliveryPercent: 59, rsi: 51, adx: 21, trendStrong: false, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.4, prox52WkHigh: 0.9 },
+  { id: 'LT.NS', name: 'Larsen & Toubro', sector: 'Capital Goods', rsRating: 77, sectorBreadth: 57, sectorStatus: 'Infra rotation', price: 3680, change24h: 1.2, deliveryPercent: 58, rsi: 54, adx: 23, trendStrong: true, bollingerSqueeze: true, institutionalBuying: false, volumeSpikeRatio: 1.5, prox52WkHigh: 0.91 },
+  { id: 'BHARTIARTL.NS', name: 'Bharti Airtel', sector: 'Telecommunication', rsRating: 81, sectorBreadth: 64, sectorStatus: 'Telecom breadth', price: 1600, change24h: 0.7, deliveryPercent: 60, rsi: 58, adx: 25, trendStrong: true, bollingerSqueeze: false, institutionalBuying: true, volumeSpikeRatio: 1.7, prox52WkHigh: 0.93 },
+  { id: 'ITC.NS', name: 'ITC', sector: 'Consumer Goods', rsRating: 74, sectorBreadth: 53, sectorStatus: 'Defensive rotation', price: 460, change24h: 0.2, deliveryPercent: 56, rsi: 50, adx: 20, trendStrong: false, bollingerSqueeze: false, institutionalBuying: false, volumeSpikeRatio: 1.1, prox52WkHigh: 0.89 },
+  { id: 'SUNPHARMA.NS', name: 'Sun Pharma', sector: 'Healthcare', rsRating: 73, sectorBreadth: 55, sectorStatus: 'Healthcare resilience', price: 1800, change24h: -0.6, deliveryPercent: 55, rsi: 47, adx: 18, trendStrong: false, bollingerSqueeze: true, institutionalBuying: true, volumeSpikeRatio: 1.2, prox52WkHigh: 0.87 },
+];
 
 const normalizeStock = (stock = {}) => ({
   id: stock.id ?? '',
@@ -56,9 +34,9 @@ const normalizeStock = (stock = {}) => ({
 });
 
 export default function App() {
-  const [stocks, setStocks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [apiStatus, setApiStatus] = useState('Loading Nifty 500 universe...');
+  const [stocks, setStocks] = useState(() => fallbackStocks.map(normalizeStock));
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiStatus, setApiStatus] = useState('Loaded 10 demo stocks');
   const [sortField, setSortField] = useState('rsRating');
   const [sortDirection, setSortDirection] = useState('desc');
   const [activeTab, setActiveTab] = useState('ALL');
@@ -66,24 +44,11 @@ export default function App() {
   // --- NEW STATE: REAL-TIME TEXT SEARCH INTERFACE ---
   const [searchQuery, setSearchQuery] = useState('');
 
-  const reloadDemoData = async () => {
+  const reloadDemoData = () => {
     setIsLoading(true);
-    setApiStatus('Loading Nifty 500 universe...');
-
-    try {
-      const response = await fetch('/nifty500.csv');
-      if (!response.ok) throw new Error('CSV unavailable');
-      const text = await response.text();
-      const parsed = parseCsv(text).map(normalizeStock);
-      setStocks(parsed);
-      setApiStatus(`Loaded ${parsed.length} Nifty 500 stocks`);
-    } catch (error) {
-      console.warn('Unable to load CSV data', error);
-      setStocks([]);
-      setApiStatus('No market data available');
-    } finally {
-      setIsLoading(false);
-    }
+    setStocks(fallbackStocks.map(normalizeStock));
+    setApiStatus('Loaded 10 demo stocks');
+    setTimeout(() => setIsLoading(false), 120);
   };
 
   useEffect(() => {
@@ -191,7 +156,7 @@ export default function App() {
             className="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white px-4 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-indigo-500/20 transition-all cursor-pointer disabled:opacity-50"
           >
             <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
-            {isLoading ? 'Loading Universe...' : 'Reload Universe'}
+            {isLoading ? 'Refreshing Feed...' : 'Reload Feed'}
           </button>
         </div>
 
