@@ -10,8 +10,5 @@ export default defineConfig({
   ],
   server: {
     port: 8000,
-    proxy: {
-      '/api': 'https://githady.github.io/nsescanner/',
-    },
   },
 })
