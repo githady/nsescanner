@@ -80,7 +80,8 @@ const ChatBox = ({ stocks, onSelectStock }) => {
 
     let hasKeywords = q.includes('golden cross') || q.includes('squeeze') || q.includes('macd') || 
                       q.includes('volume') || q.includes('accumulation') || q.includes('oversold') || 
-                      q.includes('overbought') || dynamicFilters.length > 0 || targetSectors.length > 0 || targetCaps.length > 0;
+                      q.includes('overbought') || q.includes('52 week low') || q.includes('52 week high') || 
+                      dynamicFilters.length > 0 || targetSectors.length > 0 || targetCaps.length > 0;
 
     // 5. Filtering logic
     const results = stocks.filter(stock => {
@@ -94,6 +95,8 @@ const ChatBox = ({ stocks, onSelectStock }) => {
       if (q.includes('accumulation') || q.includes('obv')) match = match && stock.isAccumulating;
       if (q.includes('oversold')) match = match && stock.rsi < 35;
       if (q.includes('overbought')) match = match && stock.rsi > 70;
+      if (q.includes('52 week low')) match = match && stock.distanceToLow < 5;
+      if (q.includes('52 week high')) match = match && stock.distanceToHigh < 5;
       
       // Sectors
       if (targetSectors.length > 0) {
