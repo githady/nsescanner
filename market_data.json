@@ -229,6 +229,7 @@
     "name": "Aditya Infotech Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3764.800048828125,
@@ -411,6 +412,7 @@
     "name": "HFCL Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 212.97000122070312,
@@ -2168,6 +2170,7 @@
     "name": "Welspun Corp Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Metal"
     ],
@@ -2216,6 +2219,7 @@
     "name": "Ather Energy Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1466.199951171875,
@@ -2443,6 +2447,7 @@
     "name": "Cemindia Projects Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1266.4000244140625,
@@ -3300,6 +3305,7 @@
     "name": "Aegis Logistics Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1333.699951171875,
@@ -3797,6 +3803,7 @@
     "name": "Laurus Labs Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -3980,6 +3987,7 @@
     "name": "R R Kabel Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2756.89990234375,
@@ -4117,6 +4125,7 @@
     "name": "Schneider Electric Infrastructure Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1424.9000244140625,
@@ -4839,6 +4848,7 @@
     "name": "Kirloskar Oil Engines Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2131.199951171875,
@@ -5561,6 +5571,7 @@
     "name": "Apar Industries Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 16448,
@@ -5833,6 +5844,7 @@
     "name": "Himadri Speciality Chemical Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 772.0499877929688,
@@ -6420,6 +6432,7 @@
     "name": "Syrma SGS Technology Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1516.4000244140625,
@@ -6557,6 +6570,7 @@
     "name": "Acutaas Chemicals Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3282,
@@ -7234,6 +7248,7 @@
     "name": "Lloyds Metals And Energy Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -7327,6 +7342,7 @@
     "name": "Oracle Financial Services Software Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty IT"
     ],
@@ -7645,6 +7661,7 @@
     "name": "Acme Solar Holdings Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 365.79998779296875,
@@ -7692,6 +7709,7 @@
     "name": "Adani Energy Solutions Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1632,
@@ -7919,6 +7937,7 @@
     "name": "Data Patterns (India) Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 4429.7001953125,
@@ -8101,6 +8120,7 @@
     "name": "Emmvee Photovoltaic Power Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 323.79998779296875,
@@ -8238,6 +8258,7 @@
     "name": "Honasa Consumer Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 477.1000061035156,
@@ -8285,6 +8306,7 @@
     "name": "Neuland Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 22216,
@@ -8332,6 +8354,7 @@
     "name": "Hitachi Energy India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 36050,
@@ -8424,6 +8447,7 @@
     "name": "Radico Khaitan Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4550,
@@ -8471,6 +8495,7 @@
     "name": "Sai Life Sciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Pharma"
     ],
@@ -9284,6 +9309,7 @@
     "name": "Netweb Technologies India Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 4903,
@@ -9916,6 +9942,7 @@
     "name": "Aster DM Quality Care Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 867.1500244140625,
@@ -10008,6 +10035,7 @@
     "name": "Gabriel India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1469.800048828125,
@@ -10100,6 +10128,7 @@
     "name": "Granules India Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 855.1500244140625,
@@ -10327,6 +10356,7 @@
     "name": "Saregama India Limited",
     "sector": "Media Entertainment & Publication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 530.0499877929688,
@@ -10464,6 +10494,7 @@
     "name": "Sona BLW Precision Forgings Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Auto"
     ],
@@ -10962,6 +10993,7 @@
     "name": "Bharat Heavy Electricals Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 409,
@@ -11369,6 +11401,7 @@
     "name": "Jindal Saw Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 279.04998779296875,
@@ -12361,6 +12394,7 @@
     "name": "The Jammu & Kashmir Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 155.14999389648438,
@@ -13038,6 +13072,7 @@
     "name": "Tejas Networks Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 521.5,
@@ -13175,6 +13210,7 @@
     "name": "Anand Rathi Wealth Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2131.5,
@@ -13267,6 +13303,7 @@
     "name": "Balrampur Chini Mills Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 655.25,
@@ -13314,6 +13351,7 @@
     "name": "Caplin Point Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2623.800048828125,
@@ -13406,6 +13444,7 @@
     "name": "Exide Industries Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -14174,6 +14213,7 @@
     "name": "Adani Green Energy Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1369,
@@ -14311,6 +14351,7 @@
     "name": "Deepak Fertilizers and Petrochemicals Corporation Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1530.4000244140625,
@@ -14403,6 +14444,7 @@
     "name": "Gland Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Pharma"
     ],
@@ -14991,6 +15033,7 @@
     "name": "Solar Industries India Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 18820,
@@ -15083,6 +15126,7 @@
     "name": "Tata Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 879.1500244140625,
@@ -15130,6 +15174,7 @@
     "name": "Thermax Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4052.199951171875,
@@ -15222,6 +15267,7 @@
     "name": "Vijaya Diagnostic Centre Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1392.5999755859375,
@@ -15269,6 +15315,7 @@
     "name": "Adani Power Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 210.64999389648438,
@@ -15361,6 +15408,7 @@
     "name": "Aurobindo Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -15634,6 +15682,7 @@
     "name": "Divi's Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Pharma"
     ],
@@ -15727,6 +15776,7 @@
     "name": "Engineers India Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 247.9600067138672,
@@ -15909,6 +15959,7 @@
     "name": "Kalyan Jewellers India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 600.25,
@@ -16361,6 +16412,7 @@
     "name": "Belrise Industries Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 252.77000427246094,
@@ -16408,6 +16460,7 @@
     "name": "Carborundum Universal Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1121,
@@ -16770,6 +16823,7 @@
     "name": "Dr. Lal Path Labs Ltd.",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1954,
@@ -16862,6 +16916,7 @@
     "name": "Samvardhana Motherson International Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Auto"
     ],
@@ -17000,6 +17055,7 @@
     "name": "Onesource Specialty Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1575.4000244140625,
@@ -17407,6 +17463,7 @@
     "name": "Wockhardt Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Pharma"
     ],
@@ -17455,6 +17512,7 @@
     "name": "Adani Enterprises Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Metal"
     ],
@@ -17593,6 +17651,7 @@
     "name": "Blue Jet Healthcare Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 592.1500244140625,
@@ -17685,6 +17744,7 @@
     "name": "Chennai Petroleum Corporation Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1240.0999755859375,
@@ -17732,6 +17792,7 @@
     "name": "Finolex Cables Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1058.050048828125,
@@ -17959,6 +18020,7 @@
     "name": "One 97 Communications Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1584.0999755859375,
@@ -18141,6 +18203,7 @@
     "name": "Rainbow Childrens Medicare Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1538.5999755859375,
@@ -18323,6 +18386,7 @@
     "name": "Sumitomo Chemical India Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 561.25,
@@ -18550,6 +18614,7 @@
     "name": "ABB India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 7649.5,
@@ -18732,6 +18797,7 @@
     "name": "Bharat Forge Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -18825,6 +18891,7 @@
     "name": "Capri Global Capital Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 232.38999938964844,
@@ -19007,6 +19074,7 @@
     "name": "Siemens Energy India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 3567.300048828125,
@@ -19324,6 +19392,7 @@
     "name": "PNB Housing Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1149.300048828125,
@@ -19731,6 +19800,7 @@
     "name": "Craftsman Automation Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 10282.5,
@@ -20318,6 +20388,7 @@
     "name": "Piramal Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Pharma"
     ],
@@ -20501,6 +20572,7 @@
     "name": "Redington Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 353.20001220703125,
@@ -20908,6 +20980,7 @@
     "name": "Emcure Pharmaceuticals Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1995.199951171875,
@@ -21405,6 +21478,7 @@
     "name": "Global Health Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1476.199951171875,
@@ -21497,6 +21571,7 @@
     "name": "Olectra Greentech Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1368.300048828125,
@@ -21589,6 +21664,7 @@
     "name": "Premier Energies Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1044.0999755859375,
@@ -21996,6 +22072,7 @@
     "name": "Cohance Lifesciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 447,
@@ -22043,6 +22120,7 @@
     "name": "Gujarat Fluorochemicals Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4484,
@@ -22225,6 +22303,7 @@
     "name": "JSW Infrastructure Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 342,
@@ -22272,6 +22351,7 @@
     "name": "Nippon Life India Asset Management Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1174,
@@ -22499,6 +22579,7 @@
     "name": "Ramkrishna Forgings Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 736.2000122070312,
@@ -22906,6 +22987,7 @@
     "name": "Zen Technologies Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1720,
@@ -22998,6 +23080,7 @@
     "name": "Aegis Vopak Terminals Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 276.54998779296875,
@@ -23045,6 +23128,7 @@
     "name": "Anthem Biosciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 853,
@@ -23137,6 +23221,7 @@
     "name": "Cartrade Tech Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2762,
@@ -23184,6 +23269,7 @@
     "name": "CG Power and Industrial Solutions Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 879,
@@ -23501,6 +23587,7 @@
     "name": "Krishna Institute of Medical Sciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 819.5,
@@ -23593,6 +23680,7 @@
     "name": "Lenskart Solutions Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 586.1500244140625,
@@ -23640,6 +23728,7 @@
     "name": "Minda Corporation Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 736.0999755859375,
@@ -23732,6 +23821,7 @@
     "name": "RBL Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 391,
@@ -23869,6 +23959,7 @@
     "name": "Triveni Turbine Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 636.75,
@@ -24006,6 +24097,7 @@
     "name": "Zydus Wellness Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 516.0999755859375,
@@ -24278,6 +24370,7 @@
     "name": "The Federal Bank  Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Bank"
     ],
@@ -24326,6 +24419,7 @@
     "name": "HEG Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 683.5999755859375,
@@ -24823,6 +24917,7 @@
     "name": "Siemens Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 3914.300048828125,
@@ -25185,6 +25280,7 @@
     "name": "Aditya Birla Sun Life AMC Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1011.7999877929688,
@@ -25367,6 +25463,7 @@
     "name": "Apollo Hospitals Enterprise Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 8912,
@@ -25549,6 +25646,7 @@
     "name": "Godrej Industries Limited",
     "sector": "Diversified",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1292.199951171875,
@@ -25641,6 +25739,7 @@
     "name": "Kajaria Ceramics Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1184.699951171875,
@@ -25733,6 +25832,7 @@
     "name": "Navin Fluorine International Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 8196.5,
@@ -25780,6 +25880,7 @@
     "name": "Ola Electric Mobility Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 39.29999923706055,
@@ -26007,6 +26108,7 @@
     "name": "Star Health and Allied Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 574.9500122070312,
@@ -26234,6 +26336,7 @@
     "name": "AIA Engineering Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4790.2998046875,
@@ -26281,6 +26384,7 @@
     "name": "Ajanta Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -26419,6 +26523,7 @@
     "name": "Cummins India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 5448,
@@ -26826,6 +26931,7 @@
     "name": "KEI Industries Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 5659.7998046875,
@@ -26873,6 +26979,7 @@
     "name": "Meesho Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 191.97999572753906,
@@ -27235,6 +27342,7 @@
     "name": "Torrent Pharmaceuticals Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Pharma"
     ],
@@ -27418,6 +27526,7 @@
     "name": "Allied Blenders and Distillers Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 624.7000122070312,
@@ -27510,6 +27619,7 @@
     "name": "Bajaj Auto Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Auto"
     ],
@@ -27693,6 +27803,7 @@
     "name": "Five-Star Business Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 546.5499877929688,
@@ -28010,6 +28121,7 @@
     "name": "Piramal Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2100.699951171875,
@@ -28057,6 +28169,7 @@
     "name": "Poly Medicure Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1772.4000244140625,
@@ -28374,6 +28487,7 @@
     "name": "Zydus Lifesciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Pharma"
     ],
@@ -28422,6 +28536,7 @@
     "name": "Action Construction Equipment Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1113.5999755859375,
@@ -28514,6 +28629,7 @@
     "name": "Adani Total Gas Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 660.0999755859375,
@@ -28606,6 +28722,7 @@
     "name": "BSE Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3596.10009765625,
@@ -28878,6 +28995,7 @@
     "name": "IIFL Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 625.9000244140625,
@@ -28925,6 +29043,7 @@
     "name": "JSW Energy Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 578,
@@ -29017,6 +29136,7 @@
     "name": "Manappuram Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 369.29998779296875,
@@ -29424,6 +29544,7 @@
     "name": "Travel Food Services Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1396.9000244140625,
@@ -29561,6 +29682,7 @@
     "name": "Bosch Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Auto"
     ],
@@ -29654,6 +29776,7 @@
     "name": "CREDITACCESS GRAMEEN LIMITED",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1530.5,
@@ -29746,6 +29869,7 @@
     "name": "Dixon Technologies (India) Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 14115,
@@ -29973,6 +30097,7 @@
     "name": "Hindustan Aeronautics Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 4928,
@@ -30470,6 +30595,7 @@
     "name": "Titan Company Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 5090,
@@ -30562,6 +30688,7 @@
     "name": "Vardhman Textiles Limited",
     "sector": "Textiles",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 608.2999877929688,
@@ -30699,6 +30826,7 @@
     "name": "Endurance Technologies Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2969,
@@ -30791,6 +30919,7 @@
     "name": "Honeywell Automation India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 38035,
@@ -30973,6 +31102,7 @@
     "name": "Bank of Maharashtra",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 78.87999725341797,
@@ -31020,6 +31150,7 @@
     "name": "Mankind Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -31248,6 +31379,7 @@
     "name": "Polycab India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 9275,
@@ -31520,6 +31652,7 @@
     "name": "Tube Investments of India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -31568,6 +31701,7 @@
     "name": "TVS Motor Company Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Auto"
     ],
@@ -31616,6 +31750,7 @@
     "name": "Usha Martin Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 516.7999877929688,
@@ -31753,6 +31888,7 @@
     "name": "Authum Investment & Infrastructure Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 586.2000122070312,
@@ -31980,6 +32116,7 @@
     "name": "Godrej Properties Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2108.39990234375,
@@ -32027,6 +32164,7 @@
     "name": "GE Vernova T&D India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4330,
@@ -32074,6 +32212,7 @@
     "name": "IFCI Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 76.0199966430664,
@@ -32166,6 +32305,7 @@
     "name": "Jaiprakash Power Ventures Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 17.799999237060547,
@@ -32258,6 +32398,7 @@
     "name": "Kalpataru Projects International Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1315.4000244140625,
@@ -32395,6 +32536,7 @@
     "name": "Nestle India Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1528.5999755859375,
@@ -32442,6 +32584,7 @@
     "name": "The New India Assurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 179.55999755859375,
@@ -32489,6 +32632,7 @@
     "name": "Nuvama Wealth Management Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1635.5999755859375,
@@ -32941,6 +33085,7 @@
     "name": "Coforge Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty IT"
     ],
@@ -32989,6 +33134,7 @@
     "name": "Elgi Equipments Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 582.5499877929688,
@@ -33171,6 +33317,7 @@
     "name": "Billionbrains Garage Ventures Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 193.33999633789062,
@@ -33398,6 +33545,7 @@
     "name": "FSN E-Commerce Ventures Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 323.70001220703125,
@@ -33445,6 +33593,7 @@
     "name": "Oberoi Realty Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1793,
@@ -33672,6 +33821,7 @@
     "name": "Leela Palaces Hotels & Resorts Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 507,
@@ -33944,6 +34094,7 @@
     "name": "Aditya Birla Capital Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 407.75,
@@ -34036,6 +34187,7 @@
     "name": "Berger Paints (I) Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 542.0999755859375,
@@ -34263,6 +34415,7 @@
     "name": "Grasim Industries Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 3380.5,
@@ -34310,6 +34463,7 @@
     "name": "Indegene Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 568.75,
@@ -34357,6 +34511,7 @@
     "name": "IPCA Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -34720,6 +34875,7 @@
     "name": "Paradeep Phosphates Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 149.8699951171875,
@@ -35352,6 +35508,7 @@
     "name": "Marico Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 863.5,
@@ -36209,6 +36366,7 @@
     "name": "Asian Paints Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 2750,
@@ -36301,6 +36459,7 @@
     "name": "Biocon Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -36484,6 +36643,7 @@
     "name": "Glenmark Pharmaceuticals Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -36622,6 +36782,7 @@
     "name": "Graphite India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 722.9000244140625,
@@ -36804,6 +36965,7 @@
     "name": "Multi Commodity Exchange of India Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2759.300048828125,
@@ -36896,6 +37058,7 @@
     "name": "Sun Pharmaceutical Industries Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Pharma"
     ],
@@ -37799,6 +37962,7 @@
     "name": "Pidilite Industries Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1685,
@@ -37936,6 +38100,7 @@
     "name": "Shyam Metalics and Energy Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1003.0999755859375,
@@ -38118,6 +38283,7 @@
     "name": "Urban Company Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 139.3000030517578,
@@ -38210,6 +38376,7 @@
     "name": "Welspun Living Limited",
     "sector": "Textiles",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 164.2899932861328,
@@ -38392,6 +38559,7 @@
     "name": "Bajaj Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1102.199951171875,
@@ -38484,6 +38652,7 @@
     "name": "Concord Biotech Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1419,
@@ -38756,6 +38925,7 @@
     "name": "Vodafone Idea Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 12.920000076293945,
@@ -38848,6 +39018,7 @@
     "name": "Jubilant Ingrevia Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 741.8499755859375,
@@ -38895,6 +39066,7 @@
     "name": "Linde India Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 7048,
@@ -39392,6 +39564,7 @@
     "name": "Choice International Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 844.75,
@@ -39439,6 +39612,7 @@
     "name": "Eicher Motors Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Auto"
     ],
@@ -39622,6 +39796,7 @@
     "name": "K.P.R. Mill Limited",
     "sector": "Textiles",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1086,
@@ -39669,6 +39844,7 @@
     "name": "Lodha Developers Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1213,
@@ -39806,6 +39982,7 @@
     "name": "Niva Bupa Health Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 86.38999938964844,
@@ -40033,6 +40210,7 @@
     "name": "The Phoenix Mills Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1935,
@@ -40080,6 +40258,7 @@
     "name": "Physicswallah Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 127.5199966430664,
@@ -40172,6 +40351,7 @@
     "name": "Shipping Corporation Of India Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 294.95001220703125,
@@ -40534,6 +40714,7 @@
     "name": "Delhivery Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 478.3500061035156,
@@ -40806,6 +40987,7 @@
     "name": "IndusInd Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Bank"
     ],
@@ -40989,6 +41171,7 @@
     "name": "Motilal Oswal Financial Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 882,
@@ -41396,6 +41579,7 @@
     "name": "Tata Communications Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1739.4000244140625,
@@ -41758,6 +41942,7 @@
     "name": "CCL Products (India) Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1122.699951171875,
@@ -41940,6 +42125,7 @@
     "name": "Deepak Nitrite Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1779.199951171875,
@@ -42302,6 +42488,7 @@
     "name": "PVR INOX Limited",
     "sector": "Media Entertainment & Publication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1144,
@@ -42709,6 +42896,7 @@
     "name": "Cipla Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Pharma"
     ],
@@ -42937,6 +43125,7 @@
     "name": "Hindalco Industries Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Metal"
     ],
@@ -43075,6 +43264,7 @@
     "name": "Info Edge (India) Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1282,
@@ -43167,6 +43357,7 @@
     "name": "NLC India Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 285.3500061035156,
@@ -43304,6 +43495,7 @@
     "name": "Page Industries Limited",
     "sector": "Textiles",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 38660,
@@ -43486,6 +43678,7 @@
     "name": "Steel Authority of India Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -43534,6 +43727,7 @@
     "name": "Sammaan Capital Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 162.3000030517578,
@@ -43716,6 +43910,7 @@
     "name": "Trent Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 3025,
@@ -43853,6 +44048,7 @@
     "name": "Angel One Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 294.79998779296875,
@@ -44080,6 +44276,7 @@
     "name": "Cholamandalam Investment and Finance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1920,
@@ -44262,6 +44459,7 @@
     "name": "GMR AIRPORTS LIMITED",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 106.30000305175781,
@@ -44309,6 +44507,7 @@
     "name": "InterGlobe Aviation Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 5333.5,
@@ -44716,6 +44915,7 @@
     "name": "Supreme Petrochem Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 693.75,
@@ -44853,6 +45053,7 @@
     "name": "Adani Ports and Special Economic Zone Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1681,
@@ -45260,6 +45461,7 @@
     "name": "JSW Cement Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 132.83999633789062,
@@ -45397,6 +45599,7 @@
     "name": "Natco Pharma Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 910.5,
@@ -45489,6 +45692,7 @@
     "name": "PCBL Chemical Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 323.3999938964844,
@@ -45806,6 +46010,7 @@
     "name": "TITAGARH RAIL SYSTEMS LIMITED",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 839.4500122070312,
@@ -45898,6 +46103,7 @@
     "name": "United Spirits Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1522,
@@ -45990,6 +46196,7 @@
     "name": "Anant Raj Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 604.25,
@@ -46082,6 +46289,7 @@
     "name": "BEML Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1884.4000244140625,
@@ -46129,6 +46337,7 @@
     "name": "Computer Age Management Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 789.4500122070312,
@@ -46176,6 +46385,7 @@
     "name": "ETERNAL LIMITED",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 310.25,
@@ -46313,6 +46523,7 @@
     "name": "International Gemological Institute Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 354.3500061035156,
@@ -46450,6 +46661,7 @@
     "name": "JBM Auto Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 639.3499755859375,
@@ -46767,6 +46979,7 @@
     "name": "Shriram Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1137.800048828125,
@@ -46814,6 +47027,7 @@
     "name": "UNO Minda Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -47042,6 +47256,7 @@
     "name": "Aarti Industries Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 500.54998779296875,
@@ -47134,6 +47349,7 @@
     "name": "AU Small Finance Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Bank"
     ],
@@ -47182,6 +47398,7 @@
     "name": "Bandhan Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 172.6199951171875,
@@ -47274,6 +47491,7 @@
     "name": "CESC Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 164.5800018310547,
@@ -47501,6 +47719,7 @@
     "name": "Fortis Healthcare Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 945.1500244140625,
@@ -47593,6 +47812,7 @@
     "name": "Gravita India Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1783.5,
@@ -47820,6 +48040,7 @@
     "name": "NMDC Steel Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 44.66999816894531,
@@ -47867,6 +48088,7 @@
     "name": "Pfizer Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 4877.60009765625,
@@ -47914,6 +48136,7 @@
     "name": "PB Fintech Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1630,
@@ -48141,6 +48364,7 @@
     "name": "Aavas Financiers Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1404,
@@ -48458,6 +48682,7 @@
     "name": "GAIL (India) Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 172.5,
@@ -48730,6 +48955,7 @@
     "name": "L&T Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 312.8500061035156,
@@ -48777,6 +49003,7 @@
     "name": "Mahindra & Mahindra Financial Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 412.29998779296875,
@@ -48824,6 +49051,7 @@
     "name": "Max Healthcare Institute Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1069,
@@ -49006,6 +49234,7 @@
     "name": "TBO Tek Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1602,
@@ -49188,6 +49417,7 @@
     "name": "Yes Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Bank"
     ],
@@ -49236,6 +49466,7 @@
     "name": "Aadhar Housing Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 501.6499938964844,
@@ -49283,6 +49514,7 @@
     "name": "Atul Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 6854,
@@ -49465,6 +49697,7 @@
     "name": "Godfrey Phillips India Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2289,
@@ -49512,6 +49745,7 @@
     "name": "The Indian Hotels Company Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 728.7000122070312,
@@ -49649,6 +49883,7 @@
     "name": "National Aluminium Company Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -49697,6 +49932,7 @@
     "name": "Narayana Hrudayalaya Ltd.",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1834.5999755859375,
@@ -49789,6 +50025,7 @@
     "name": "PG Electroplast Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 621.7999877929688,
@@ -49836,6 +50073,7 @@
     "name": "PTC Industries Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 19370,
@@ -50063,6 +50301,7 @@
     "name": "Tata Investment Corporation Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 687.9000244140625,
@@ -50695,6 +50934,7 @@
     "name": "JSW Steel Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Metal"
     ],
@@ -50878,6 +51118,7 @@
     "name": "Lupin Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -50926,6 +51167,7 @@
     "name": "Mazagon Dock Shipbuilders Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 2575,
@@ -51063,6 +51305,7 @@
     "name": "NTPC Green Energy Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 91.87999725341797,
@@ -51245,6 +51488,7 @@
     "name": "Transformers And Rectifiers (India) Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 299.1000061035156,
@@ -51292,6 +51536,7 @@
     "name": "Tata Capital Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 367.8500061035156,
@@ -51429,6 +51674,7 @@
     "name": "360 ONE WAM LIMITED",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1175.5999755859375,
@@ -51566,6 +51812,7 @@
     "name": "Bajaj Holdings & Investment Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 11471,
@@ -51748,6 +51995,7 @@
     "name": "Avenue Supermarts Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 4054,
@@ -51840,6 +52088,7 @@
     "name": "GlaxoSmithKline Pharmaceuticals Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2601,
@@ -52337,6 +52586,7 @@
     "name": "Tata Power Company Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 382,
@@ -52474,6 +52724,7 @@
     "name": "ZF Commercial Vehicle Control Systems India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2609.60009765625,
@@ -52881,6 +53132,7 @@
     "name": "Garden Reach Shipbuilders & Engineers Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2586.89990234375,
@@ -52928,6 +53180,7 @@
     "name": "ICICI Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Bank"
     ],
@@ -52976,6 +53229,7 @@
     "name": "JSW Dulux Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3055.300048828125,
@@ -53023,6 +53277,7 @@
     "name": "Jubilant Pharmova Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 962.7000122070312,
@@ -53475,6 +53730,7 @@
     "name": "Sapphire Foods India Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 220.6199951171875,
@@ -53612,6 +53868,7 @@
     "name": "3M India Limited",
     "sector": "Diversified",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 35900,
@@ -53749,6 +54006,7 @@
     "name": "Castrol India Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 193.42999267578125,
@@ -53841,6 +54099,7 @@
     "name": "Fertilizers and Chemicals Travancore Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 834.7000122070312,
@@ -53933,6 +54192,7 @@
     "name": "Gallantt Ispat Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 591.2000122070312,
@@ -54070,6 +54330,7 @@
     "name": "Housing & Urban Development Corporation Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 199.61000061035156,
@@ -54117,6 +54378,7 @@
     "name": "Hyundai Motor India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 2223,
@@ -54164,6 +54426,7 @@
     "name": "Inventurus Knowledge Solutions Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1728.800048828125,
@@ -54256,6 +54519,7 @@
     "name": "LG Electronics India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1557.800048828125,
@@ -54303,6 +54567,7 @@
     "name": "Prime Focus Limited",
     "sector": "Media Entertainment & Publication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 283.04998779296875,
@@ -54350,6 +54615,7 @@
     "name": "Poonawalla Fincorp Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 476.70001220703125,
@@ -54442,6 +54708,7 @@
     "name": "RITES Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 232.83999633789062,
@@ -54489,6 +54756,7 @@
     "name": "Schaeffler India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4063.199951171875,
@@ -54716,6 +54984,7 @@
     "name": "Chambal Fertilizers & Chemicals Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 451.54998779296875,
@@ -55033,6 +55302,7 @@
     "name": "Hero MotoCorp Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -55441,6 +55711,7 @@
     "name": "Sonata Software Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 320.1000061035156,
@@ -55713,6 +55984,7 @@
     "name": "Zee Entertainment Enterprises Limited",
     "sector": "Media Entertainment & Publication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 94.41999816894531,
@@ -56030,6 +56302,7 @@
     "name": "Canara HSBC Life Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 149.38999938964844,
@@ -56122,6 +56395,7 @@
     "name": "Devyani International Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 133.55999755859375,
@@ -56169,6 +56443,7 @@
     "name": "The Great Eastern Shipping Company Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1329.5999755859375,
@@ -56306,6 +56581,7 @@
     "name": "ICICI Prudential Asset Management Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3054.199951171875,
@@ -56443,6 +56719,7 @@
     "name": "Karur Vysya Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 331.20001220703125,
@@ -56625,6 +56902,7 @@
     "name": "NMDC Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -56808,6 +57086,7 @@
     "name": "Tech Mahindra Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty IT"
     ],
@@ -57036,6 +57315,7 @@
     "name": "Amber Enterprises India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 7095,
@@ -57083,6 +57363,7 @@
     "name": "Bharat Dynamics Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1310,
@@ -57175,6 +57456,7 @@
     "name": "Clean Science and Technology Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 803.5499877929688,
@@ -57402,6 +57684,7 @@
     "name": "Home First Finance Company India Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1181.5999755859375,
@@ -57449,6 +57732,7 @@
     "name": "Indian Energy Exchange Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 126.30000305175781,
@@ -57946,6 +58230,7 @@
     "name": "Union Bank of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Bank"
     ],
@@ -58039,6 +58324,7 @@
     "name": "Abbott India Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -58132,6 +58418,7 @@
     "name": "Amara Raja Energy & Mobility Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 897.7000122070312,
@@ -58224,6 +58511,7 @@
     "name": "Brigade Enterprises Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 607.7000122070312,
@@ -58361,6 +58649,7 @@
     "name": "IDFC First Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Bank"
     ],
@@ -58498,6 +58787,7 @@
     "name": "LT Foods Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 422.75,
@@ -58590,6 +58880,7 @@
     "name": "Newgen Software Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 563.2000122070312,
@@ -58682,6 +58973,7 @@
     "name": "Prestige Estates Projects Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1589,
@@ -59224,6 +59516,7 @@
     "name": "Bajaj Finserv Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 2021.300048828125,
@@ -59316,6 +59609,7 @@
     "name": "City Union Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 216.4199981689453,
@@ -59678,6 +59972,7 @@
     "name": "NAVA LIMITED",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 577.1500244140625,
@@ -59950,6 +60245,7 @@
     "name": "Timken India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3283.89990234375,
@@ -60492,6 +60788,7 @@
     "name": "Crisil Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4635.39990234375,
@@ -60899,6 +61196,7 @@
     "name": "Larsen & Toubro Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 4080,
@@ -61396,6 +61694,7 @@
     "name": "Cochin Shipyard Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1502,
@@ -61533,6 +61832,7 @@
     "name": "DLF Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 660,
@@ -62165,6 +62465,7 @@
     "name": "Suzlon Energy Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 47.5,
@@ -62347,6 +62648,7 @@
     "name": "Aditya Birla Real Estate Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1393.199951171875,
@@ -62574,6 +62876,7 @@
     "name": "Container Corporation of India Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 501.8999938964844,
@@ -62846,6 +63149,7 @@
     "name": "Indian Bank",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 884.1500244140625,
@@ -63028,6 +63332,7 @@
     "name": "Mahanagar Gas Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1123.5999755859375,
@@ -63120,6 +63425,7 @@
     "name": "NHPC Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 77.19999694824219,
@@ -63347,6 +63653,7 @@
     "name": "Tenneco Clean Air India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 554.4500122070312,
@@ -63439,6 +63746,7 @@
     "name": "Alkem Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Pharma"
     ],
@@ -63577,6 +63885,7 @@
     "name": "Central Depository Services (India) Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1332.5,
@@ -63759,6 +64068,7 @@
     "name": "Eris Lifesciences Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1393.4000244140625,
@@ -63851,6 +64161,7 @@
     "name": "ITI Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 286,
@@ -63898,6 +64209,7 @@
     "name": "JM Financial Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 127.20999908447266,
@@ -64125,6 +64437,7 @@
     "name": "Mahindra & Mahindra Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Auto"
     ],
@@ -64218,6 +64531,7 @@
     "name": "RHI MAGNESITA INDIA LIMITED",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 423.3500061035156,
@@ -64265,6 +64579,7 @@
     "name": "Sarda Energy & Minerals Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 500.5,
@@ -64357,6 +64672,7 @@
     "name": "Techno Electric & Engineering Company Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1062.550048828125,
@@ -64494,6 +64810,7 @@
     "name": "Varun Beverages Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 445.5,
@@ -64541,6 +64858,7 @@
     "name": "Affle 3i Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1594.5,
@@ -64768,6 +65086,7 @@
     "name": "Chalet Hotels Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 837.0999755859375,
@@ -64995,6 +65314,7 @@
     "name": "Gujarat Mineral Development Corporation Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 603.1500244140625,
@@ -65222,6 +65542,7 @@
     "name": "MMTC Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 63.95000076293945,
@@ -65269,6 +65590,7 @@
     "name": "Nuvoco Vistas Corporation Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 337.8999938964844,
@@ -65496,6 +65818,7 @@
     "name": "SBFC Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 94,
@@ -65588,6 +65911,7 @@
     "name": "Tata Motors Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 450.20001220703125,
@@ -65725,6 +66049,7 @@
     "name": "Astral Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1437,
@@ -65817,6 +66142,7 @@
     "name": "Bikaji Foods International Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 623.2999877929688,
@@ -65909,6 +66235,7 @@
     "name": "Britannia Industries Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 5623.5,
@@ -65956,6 +66283,7 @@
     "name": "CIE Automotive India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 409.5,
@@ -66363,6 +66691,7 @@
     "name": "MphasiS Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty IT"
     ],
@@ -66591,6 +66920,7 @@
     "name": "SHREE CEMENT LIMITED",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 26100,
@@ -67268,6 +67598,7 @@
     "name": "LIC Housing Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 500,
@@ -67450,6 +67781,7 @@
     "name": "REC Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 343.75,
@@ -67902,6 +68234,7 @@
     "name": "Bharti Airtel Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1943,
@@ -67994,6 +68327,7 @@
     "name": "Coal India Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 411,
@@ -68221,6 +68555,7 @@
     "name": "Firstsource Solutions Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 279.70001220703125,
@@ -68403,6 +68738,7 @@
     "name": "Indian Overseas Bank",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 33.880001068115234,
@@ -68945,6 +69281,7 @@
     "name": "Aptus Value Housing Finance India Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 253.25,
@@ -69307,6 +69644,7 @@
     "name": "Hexaware Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 570.2999877929688,
@@ -69354,6 +69692,7 @@
     "name": "Hindustan Zinc Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Metal"
     ],
@@ -69447,6 +69786,7 @@
     "name": "Kaynes Technology India Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3735.10009765625,
@@ -69629,6 +69969,7 @@
     "name": "Motherson Sumi Wiring India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 41.040000915527344,
@@ -69946,6 +70287,7 @@
     "name": "TATA CONSUMER PRODUCTS LIMITED",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1108.699951171875,
@@ -70263,6 +70605,7 @@
     "name": "CEAT Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 3793.60009765625,
@@ -70355,6 +70698,7 @@
     "name": "Cholamandalam Financial Holdings Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1622.0999755859375,
@@ -70447,6 +70791,7 @@
     "name": "Intellect Design Arena Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 727.8499755859375,
@@ -70494,6 +70839,7 @@
     "name": "JINDAL STEEL LIMITED",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Metal"
     ],
@@ -70542,6 +70888,7 @@
     "name": "Jio Financial Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 254,
@@ -70949,6 +71296,7 @@
     "name": "Supreme Industries Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3495,
@@ -70996,6 +71344,7 @@
     "name": "Tata Chemicals Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 668.9000244140625,
@@ -71313,6 +71662,7 @@
     "name": "Crompton Greaves Consumer Electricals Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 247.5500030517578,
@@ -71765,6 +72115,7 @@
     "name": "Maruti Suzuki India Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Auto"
     ],
@@ -71813,6 +72164,7 @@
     "name": "NTPC Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 340.45001220703125,
@@ -71995,6 +72347,7 @@
     "name": "Tata Steel Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Metal"
     ],
@@ -72088,6 +72441,7 @@
     "name": "Torrent Power Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1342.9000244140625,
@@ -72315,6 +72669,7 @@
     "name": "Bajaj Housing Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 85.05999755859375,
@@ -72362,6 +72717,7 @@
     "name": "Balkrishna Industries Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2524.60009765625,
@@ -72409,6 +72765,7 @@
     "name": "Colgate Palmolive (India) Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2019.5,
@@ -72681,6 +73038,7 @@
     "name": "Havells India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1285,
@@ -72728,6 +73086,7 @@
     "name": "HDFC Asset Management Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 2560,
@@ -72865,6 +73224,7 @@
     "name": "Kfin Technologies Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 928.5,
@@ -72957,6 +73317,7 @@
     "name": "Petronet LNG Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 280,
@@ -73004,6 +73365,7 @@
     "name": "Power Grid Corporation of India Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 270.1000061035156,
@@ -73051,6 +73413,7 @@
     "name": "State Bank of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Bank"
     ],
@@ -73414,6 +73777,7 @@
     "name": "AWL Agri Business Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 196.1300048828125,
@@ -73461,6 +73825,7 @@
     "name": "Axis Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Bank"
     ],
@@ -73599,6 +73964,7 @@
     "name": "DOMS Industries Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 2250.10009765625,
@@ -73736,6 +74102,7 @@
     "name": "HDB Financial Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 676.4000244140625,
@@ -73783,6 +74150,7 @@
     "name": "Indian Renewable Energy Development Agency Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 120,
@@ -73875,6 +74243,7 @@
     "name": "Jyoti CNC Automation Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 801.3499755859375,
@@ -74012,6 +74381,7 @@
     "name": "NBCC (India) Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 94.8499984741211,
@@ -74104,6 +74474,7 @@
     "name": "Persistent Systems Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty IT"
     ],
@@ -74467,6 +74838,7 @@
     "name": "Anupam Rasayan India Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1216.300048828125,
@@ -74559,6 +74931,7 @@
     "name": "Bharat Electronics Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 404.3500061035156,
@@ -74786,6 +75159,7 @@
     "name": "Jindal Stainless Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -74924,6 +75298,7 @@
     "name": "NCC Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 146.4499969482422,
@@ -74971,6 +75346,7 @@
     "name": "Oil India Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 453,
@@ -75063,6 +75439,7 @@
     "name": "Power Finance Corporation Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 385.1499938964844,
@@ -75380,6 +75757,7 @@
     "name": "Signatureglobal (India) Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 824.6500244140625,
@@ -75427,6 +75805,7 @@
     "name": "SJVN Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 67.9000015258789,
@@ -75564,6 +75943,7 @@
     "name": "Asahi India Glass Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 902.9000244140625,
@@ -75656,6 +76036,7 @@
     "name": "Coromandel International Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2098.300048828125,
@@ -75748,6 +76129,7 @@
     "name": "Godawari Power And Ispat limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 237.14999389648438,
@@ -76065,6 +76447,7 @@
     "name": "MRF Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 133850,
@@ -76157,6 +76540,7 @@
     "name": "Punjab National Bank",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Bank"
     ],
@@ -76520,6 +76904,7 @@
     "name": "Tata Motors Passenger Vehicles Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Auto"
     ],
@@ -76568,6 +76953,7 @@
     "name": "UltraTech Cement Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 12038,
@@ -76705,6 +77091,7 @@
     "name": "General Insurance Corporation of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 352.79998779296875,
@@ -77067,6 +77454,7 @@
     "name": "Kotak Mahindra Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Bank"
     ],
@@ -77205,6 +77593,7 @@
     "name": "L&T Technology Services Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3583.39990234375,
@@ -77522,6 +77911,7 @@
     "name": "SBI Life Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1855,
@@ -77974,6 +78364,7 @@
     "name": "Dr. Reddy's Laboratories Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Pharma"
     ],
@@ -78022,6 +78413,7 @@
     "name": "Elecon Engineering Company Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 437.75,
@@ -78564,6 +78956,7 @@
     "name": "Tega Industries Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1633.5999755859375,
@@ -78836,6 +79229,7 @@
     "name": "APL Apollo Tubes Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Metal"
     ],
@@ -79199,6 +79593,7 @@
     "name": "JK Cement Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 5387.5,
@@ -79606,6 +80001,7 @@
     "name": "Reliance Industries Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 1327.300048828125,
@@ -79878,6 +80274,7 @@
     "name": "Bayer Cropscience Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 4157.2998046875,
@@ -80015,6 +80412,7 @@
     "name": "EID Parry India Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 791.25,
@@ -80062,6 +80460,7 @@
     "name": "HBL Engineering Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 694.5499877929688,
@@ -80109,6 +80508,7 @@
     "name": "ITC Hotels Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 168.8699951171875,
@@ -80156,6 +80556,7 @@
     "name": "Jubilant Foodworks Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 495,
@@ -80383,6 +80784,7 @@
     "name": "Oil & Natural Gas Corporation Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 239.83999633789062,
@@ -80835,6 +81237,7 @@
     "name": "United Breweries Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1382.800048828125,
@@ -80882,6 +81285,7 @@
     "name": "UCO Bank",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 26.1200008392334,
@@ -81199,6 +81603,7 @@
     "name": "Blue Dart Express Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 5190.5,
@@ -81786,6 +82191,7 @@
     "name": "SAGILITY LIMITED",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 43.63999938964844,
@@ -82238,6 +82644,7 @@
     "name": "BLS International Services Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 260.7099914550781,
@@ -82420,6 +82827,7 @@
     "name": "EIH Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 303.1499938964844,
@@ -82512,6 +82920,7 @@
     "name": "IRB Infrastructure Developers Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 19.520000457763672,
@@ -82919,6 +83328,7 @@
     "name": "Syngene International Limited",
     "sector": "Healthcare",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 402.6000061035156,
@@ -83056,6 +83466,7 @@
     "name": "Vishal Mega Mart Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 108.5999984741211,
@@ -83103,6 +83514,7 @@
     "name": "Whirlpool of India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 802.75,
@@ -83240,6 +83652,7 @@
     "name": "Apollo Tyres Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 445.95001220703125,
@@ -83377,6 +83790,7 @@
     "name": "DCM Shriram Limited",
     "sector": "Diversified",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1016,
@@ -83469,6 +83883,7 @@
     "name": "Hindustan Copper Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250",
       "Nifty Metal"
     ],
@@ -83607,6 +84022,7 @@
     "name": "Life Insurance Corporation Of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 393,
@@ -84374,6 +84790,7 @@
     "name": "Canara Bank",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Bank"
     ],
@@ -84467,6 +84884,7 @@
     "name": "Dalmia Bharat Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1845,
@@ -84559,6 +84977,7 @@
     "name": "Gillette India Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 7651.5,
@@ -84606,6 +85025,7 @@
     "name": "ICICI Lombard General Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1648.800048828125,
@@ -84653,6 +85073,7 @@
     "name": "ITC Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 282.6499938964844,
@@ -84925,6 +85346,7 @@
     "name": "Railtel Corporation Of India Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 290.8500061035156,
@@ -85107,6 +85529,7 @@
     "name": "Sobha Limited",
     "sector": "Realty",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1355.699951171875,
@@ -85154,6 +85577,7 @@
     "name": "SRF Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2610,
@@ -85246,6 +85670,7 @@
     "name": "Trident Limited",
     "sector": "Textiles",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 24.809999465942383,
@@ -85428,6 +85853,7 @@
     "name": "Bharti Hexacom Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1507,
@@ -86330,6 +86756,7 @@
     "name": "Tata Teleservices (Maharashtra) Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 39.02000045776367,
@@ -86377,6 +86804,7 @@
     "name": "Waaree Energies Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2701,
@@ -86604,6 +87032,7 @@
     "name": "Can Fin Homes Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 820.2999877929688,
@@ -86696,6 +87125,7 @@
     "name": "Godrej Consumer Products Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 1033,
@@ -86743,6 +87173,7 @@
     "name": "Hindustan Unilever Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 2087.199951171875,
@@ -86925,6 +87356,7 @@
     "name": "Indraprastha Gas Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 152.14999389648438,
@@ -86972,6 +87404,7 @@
     "name": "The India Cements Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 392.3500061035156,
@@ -87154,6 +87587,7 @@
     "name": "Max Financial Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1514.5,
@@ -87201,6 +87635,7 @@
     "name": "PI Industries Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 2751.60009765625,
@@ -87473,6 +87908,7 @@
     "name": "Sun TV Network Limited",
     "sector": "Media Entertainment & Publication",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 487.79998779296875,
@@ -87610,6 +88046,7 @@
     "name": "Bank of Baroda",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Bank"
     ],
@@ -88243,6 +88680,7 @@
     "name": "LTM Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty IT"
     ],
@@ -88471,6 +88909,7 @@
     "name": "SBI Cards and Payment Services Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 655,
@@ -88563,6 +89002,7 @@
     "name": "UTI Asset Management Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 907.8499755859375,
@@ -88655,6 +89095,7 @@
     "name": "Ashok Leyland Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150",
       "Nifty Auto"
     ],
@@ -88838,6 +89279,7 @@
     "name": "eClerx Services Limited",
     "sector": "Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1763.300048828125,
@@ -88975,6 +89417,7 @@
     "name": "HCL Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty IT"
     ],
@@ -89023,6 +89466,7 @@
     "name": "Hindustan Petroleum Corporation Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 393.1499938964844,
@@ -89655,6 +90099,7 @@
     "name": "Voltas Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1267.9000244140625,
@@ -89792,6 +90237,7 @@
     "name": "Bank of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 141,
@@ -89839,6 +90285,7 @@
     "name": "The Bombay Burmah Trading Corporation Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1509.5,
@@ -89976,6 +90423,7 @@
     "name": "Go Digit General Insurance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 268.3999938964844,
@@ -90248,6 +90696,7 @@
     "name": "Mangalore Refinery and Petrochemicals Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 162.9600067138672,
@@ -90385,6 +90834,7 @@
     "name": "Reliance Power Limited",
     "sector": "Power",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 23.959999084472656,
@@ -90612,6 +91062,7 @@
     "name": "Sundaram Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 4568.5,
@@ -90659,6 +91110,7 @@
     "name": "Swiggy Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 279,
@@ -91291,6 +91743,7 @@
     "name": "Ircon International Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 130.00999450683594,
@@ -91338,6 +91791,7 @@
     "name": "Indian Railway Catering And Tourism Corporation Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 522.25,
@@ -91430,6 +91884,7 @@
     "name": "Jupiter Wagons Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 257.3999938964844,
@@ -91522,6 +91977,7 @@
     "name": "Lemon Tree Hotels Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 107.94000244140625,
@@ -91929,6 +92385,7 @@
     "name": "Aditya Birla Fashion and Retail Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 61.040000915527344,
@@ -92021,6 +92478,7 @@
     "name": "Bharat Petroleum Corporation Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 318.5,
@@ -92068,6 +92526,7 @@
     "name": "Central Bank of India",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 31.020000457763672,
@@ -92970,6 +93429,7 @@
     "name": "Tata Consultancy Services Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty IT"
     ],
@@ -93333,6 +93793,7 @@
     "name": "Escorts Kubota Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3082.10009765625,
@@ -93380,6 +93841,7 @@
     "name": "FORCE MOTORS LTD",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 18300,
@@ -94192,6 +94654,7 @@
     "name": "Bata India Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 712.8499755859375,
@@ -94239,6 +94702,7 @@
     "name": "Dabur India Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 414.20001220703125,
@@ -94331,6 +94795,7 @@
     "name": "Emami Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 409.5,
@@ -94513,6 +94978,7 @@
     "name": "Indus Towers Limited",
     "sector": "Telecommunication",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 368,
@@ -94605,6 +95071,7 @@
     "name": "Indian Oil Corporation Limited",
     "sector": "Oil Gas & Consumable Fuels",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 142,
@@ -95147,6 +95614,7 @@
     "name": "Wipro Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty IT"
     ],
@@ -95195,6 +95663,7 @@
     "name": "Aditya Birla Lifestyle Brands Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 91.55000305175781,
@@ -95242,6 +95711,7 @@
     "name": "ACC Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1357.5999755859375,
@@ -95289,6 +95759,7 @@
     "name": "Ambuja Cements Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 430.8500061035156,
@@ -95606,6 +96077,7 @@
     "name": "IDBI Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 83,
@@ -96238,6 +96710,7 @@
     "name": "Zensar Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 498.8500061035156,
@@ -96600,6 +97073,7 @@
     "name": "Cyient Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 855,
@@ -96737,6 +97211,7 @@
     "name": "Indiamart Intermesh Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 1782.699951171875,
@@ -96784,6 +97259,7 @@
     "name": "Infosys Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty IT"
     ],
@@ -96967,6 +97443,7 @@
     "name": "C.E. Info Systems Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 985,
@@ -97104,6 +97581,7 @@
     "name": "The Ramco Cements Limited",
     "sector": "Construction Materials",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 953.75,
@@ -97376,6 +97854,7 @@
     "name": "Afcons Infrastructure Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 262.8500061035156,
@@ -97513,6 +97992,7 @@
     "name": "Blue Star Limited",
     "sector": "Consumer Durables",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 1508,
@@ -97695,6 +98175,7 @@
     "name": "Brainbees Solutions Limited",
     "sector": "Consumer Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 212.77999877929688,
@@ -97742,6 +98223,7 @@
     "name": "HDFC Bank Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50",
       "Nifty Bank"
     ],
@@ -97790,6 +98272,7 @@
     "name": "ICICI Prudential Life Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 499.75,
@@ -97882,6 +98365,7 @@
     "name": "Indian Railway Finance Corporation Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 88.5,
@@ -98019,6 +98503,7 @@
     "name": "Muthoot Finance Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50"
     ],
     "price": 2906,
@@ -98786,6 +99271,7 @@
     "name": "HDFC Life Insurance Company Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty 50"
     ],
     "price": 540,
@@ -99418,6 +99904,7 @@
     "name": "UPL Limited",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 567,
@@ -99915,6 +100402,7 @@
     "name": "Jain Resource Recycling Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 302.29998779296875,
@@ -100007,6 +100495,7 @@
     "name": "KEC International Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 475.8500061035156,
@@ -100324,6 +100813,7 @@
     "name": "Pine Labs Limited",
     "sector": "Financial Services",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 161.94000244140625,
@@ -101451,6 +101941,7 @@
     "name": "SWAN CORP LIMITED",
     "sector": "Chemicals",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 307.5,
@@ -101498,6 +101989,7 @@
     "name": "Tata Elxsi Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 3808,
@@ -101860,6 +102352,7 @@
     "name": "BIRLASOFT LIMITED",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 317.25,
@@ -102177,6 +102670,7 @@
     "name": "Latent View Analytics Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 297.79998779296875,
@@ -102539,6 +103033,7 @@
     "name": "Rail Vikas Nigam Limited",
     "sector": "Construction",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 230.67999267578125,
@@ -103126,6 +103621,7 @@
     "name": "JK Tyre & Industries Limited",
     "sector": "Automobile and Auto Components",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 385,
@@ -104343,6 +104839,7 @@
     "name": "Inox Wind Limited",
     "sector": "Capital Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Smallcap 250"
     ],
     "price": 73.5,
@@ -104615,6 +105112,7 @@
     "name": "Patanjali Foods Limited",
     "sector": "Fast Moving Consumer Goods",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 355,
@@ -105427,6 +105925,7 @@
     "name": "KPIT Technologies Limited",
     "sector": "Information Technology",
     "indices": [
+      "Nifty 500",
       "Nifty Midcap 150"
     ],
     "price": 627.9000244140625,
@@ -108219,6 +108718,7 @@
     "name": "Vedanta Limited",
     "sector": "Metals & Mining",
     "indices": [
+      "Nifty 500",
       "Nifty Next 50",
       "Nifty Metal"
     ],
