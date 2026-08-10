@@ -4,7 +4,7 @@ import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
 const ChatBox = ({ stocks, onSelectStock }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { id: 1, sender: 'system', text: 'Hi! I am your trading assistant. Ask me to find stocks with a golden cross, high volume, squeezing Bollinger bands, or specific RSI levels!' }
+    { id: 1, sender: 'system', text: 'Hi! I am your trading assistant. You can ask me things like "show me large cap IT stocks with rs rating above 80" or "price below 500 and macd bullish"!' }
   ]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
@@ -19,54 +19,70 @@ const ChatBox = ({ stocks, onSelectStock }) => {
 
   // NLP Parser Logic
   const parseQuery = (query) => {
-    const q = query.toLowerCase();
+    let q = query.toLowerCase();
     
-    // Define property mappings for dynamic search
+    // 1. Pre-process natural language operators to math symbols
+    const replacements = [
+      { regex: /greater than or equal to/g, op: '>=' },
+      { regex: /less than or equal to/g, op: '<=' },
+      { regex: /greater than|above|more than|over/g, op: '>' },
+      { regex: /less than|below|under|lower than/g, op: '<' },
+      { regex: /equal to|exactly/g, op: '==' },
+    ];
+    replacements.forEach(r => { q = q.replace(r.regex, r.op); });
+
+    // 2. Define property mappings for dynamic search
     const propMap = {
-      price: 'price',
-      rsi: 'rsi',
-      upside: 'algoUpside',
-      target: 'algoTarget',
-      stoploss: 'stopLoss',
-      beta: 'beta',
-      volume: 'currentVol',
-      atr: 'currentAtr',
-      change: 'change24h',
-      bbwidth: 'bbWidth',
-      trend: 'consecutiveUp',
-      uptrend: 'consecutiveUp',
-      downtrend: 'consecutiveDown',
-      sma50: 'currentSma50',
-      sma200: 'currentSma200',
-      macd: 'macdLine',
-      macdsignal: 'macdSignal',
-      rs: 'rsRating',
-      high52: 'high52w',
-      low52: 'low52w',
-      distancetohigh: 'distanceToHigh',
-      distancetolow: 'distanceToLow',
-      distsma50: 'distSma50',
-      distsma200: 'distSma200'
+      'price': 'price',
+      'rsi': 'rsi',
+      'volume': 'currentVol',
+      'atr': 'currentAtr',
+      'change': 'change24h',
+      'bb width': 'bbWidth',
+      'bbwidth': 'bbWidth',
+      '50 sma': 'currentSma50',
+      'sma 50': 'currentSma50',
+      '200 sma': 'currentSma200',
+      'sma 200': 'currentSma200',
+      'macd': 'macdLine',
+      'rs rating': 'rsRating',
+      'rs': 'rsRating',
+      'relative strength': 'rsRating',
+      'upside': 'algoUpside',
+      'target': 'algoTarget',
+      'stoploss': 'stopLoss'
     };
 
-    // Find all dynamic math patterns in query (e.g. "price < 500")
-    const mathRegex = /([a-z0-9_]+)\s*([<>=]+)\s*(-?\d+(\.\d+)?)/g;
+    // 3. Extract Math Filters
     const dynamicFilters = [];
+    const fieldsPattern = Object.keys(propMap).join('|');
+    const mathRegex = new RegExp('(' + fieldsPattern + ')\\s*([<>=]+)\\s*(-?\\d+(\\.\\d+)?)', 'g');
     let matchArr;
     while ((matchArr = mathRegex.exec(q)) !== null) {
-      const field = matchArr[1];
+      let field = matchArr[1].trim();
       const op = matchArr[2];
       const val = parseFloat(matchArr[3]);
-      
-      const mappedProp = propMap[field] || field; // use mapping, or fallback to exact property name if user knows it
-      dynamicFilters.push({ prop: mappedProp, op, val });
+      const mappedProp = propMap[field];
+      if (mappedProp) {
+        dynamicFilters.push({ prop: mappedProp, op, val });
+      }
     }
 
-    let hasKeywords = q.includes('golden cross') || q.includes('squeeze') || q.includes('macd') || 
-                        q.includes('volume') || q.includes('accumulation') || q.includes('oversold') || 
-                        q.includes('overbought') || dynamicFilters.length > 0;
+    // 4. Categorical Extraction
+    const sectors = ['information technology', 'financial services', 'banks', 'bank', 'oil', 'pharma', 'auto', 'fmcg', 'metal', 'power', 'telecom', 'realty', 'it'];
+    const marketCaps = ['large', 'mid', 'small', 'micro'];
+    
+    let targetSectors = sectors.filter(s => q.includes(s + ' sector') || q.includes(s + ' stocks') || q.match(new RegExp(`\\b${s}\\b`)));
+    if (targetSectors.includes('it')) targetSectors.push('information technology');
+    if (targetSectors.includes('bank') || targetSectors.includes('banks')) targetSectors.push('financial services');
+    
+    let targetCaps = marketCaps.filter(c => q.includes(c + ' cap'));
 
-    // Filtering logic
+    let hasKeywords = q.includes('golden cross') || q.includes('squeeze') || q.includes('macd') || 
+                      q.includes('volume') || q.includes('accumulation') || q.includes('oversold') || 
+                      q.includes('overbought') || dynamicFilters.length > 0 || targetSectors.length > 0 || targetCaps.length > 0;
+
+    // 5. Filtering logic
     const results = stocks.filter(stock => {
       let match = true;
       
@@ -79,7 +95,25 @@ const ChatBox = ({ stocks, onSelectStock }) => {
       if (q.includes('oversold')) match = match && stock.rsi < 35;
       if (q.includes('overbought')) match = match && stock.rsi > 70;
       
-      // Dynamic comparisons
+      // Sectors
+      if (targetSectors.length > 0) {
+        if (!stock.sector) match = false;
+        else {
+          const sMatch = targetSectors.some(ts => stock.sector.toLowerCase().includes(ts));
+          if (!sMatch) match = false;
+        }
+      }
+      
+      // Market Cap
+      if (targetCaps.length > 0) {
+        if (!stock.marketCap) match = false;
+        else {
+          const capMatch = targetCaps.some(c => stock.marketCap.toLowerCase() === c);
+          if (!capMatch) match = false;
+        }
+      }
+
+      // Dynamic Math
       for (const filter of dynamicFilters) {
         const stockVal = stock[filter.prop];
         if (stockVal === undefined || stockVal === null) {
@@ -90,13 +124,13 @@ const ChatBox = ({ stocks, onSelectStock }) => {
         else if (filter.op === '<=') match = match && stockVal <= filter.val;
         else if (filter.op === '>') match = match && stockVal > filter.val;
         else if (filter.op === '>=') match = match && stockVal >= filter.val;
-        else if (filter.op === '=' || filter.op === '==') match = match && stockVal === filter.val;
+        else if (filter.op === '=' || filter.op === '==' || filter.op === '===') match = match && stockVal === filter.val;
       }
       
       return match;
     });
 
-    // Determine what to say back
+    // 6. Determine what to say back
     let responseText = '';
     let foundStocks = [];
 
@@ -107,13 +141,13 @@ const ChatBox = ({ stocks, onSelectStock }) => {
         responseText = `I found a stock matching "${query}".`;
         foundStocks = [symbolMatch];
       } else {
-        responseText = `I'm sorry, I didn't understand that. Try asking for "oversold stocks", "price < 500", or "rsi < 30".`;
+        responseText = `I'm sorry, I didn't understand that. Try asking for "oversold stocks", "price < 500", or "large cap IT stocks with rs rating above 80".`;
       }
     } else {
       if (results.length === 0) {
         responseText = `I couldn't find any stocks matching those criteria right now.`;
       } else if (results.length === stocks.length) {
-        responseText = `I couldn't identify specific criteria. Try asking for "oversold stocks", "price < 500", or "rsi < 30".`;
+        responseText = `I couldn't identify specific criteria. Try asking for "oversold stocks", "price < 500", or "large cap IT stocks with rs rating above 80".`;
       } else {
         responseText = `I found ${results.length} stocks matching your criteria.`;
         // Limit to 10 so we don't flood chat
