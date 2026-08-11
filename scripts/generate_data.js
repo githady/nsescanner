@@ -3,6 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Papa from 'papaparse';
 import { RSI, SMA, ATR, MACD, BollingerBands, Stochastic } from 'technicalindicators';
+import YahooFinance from 'yahoo-finance2';
+const yahooFinance = new YahooFinance({ suppressNotices: ['yahooSurvey'] });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,7 +79,7 @@ const fetchBenchmarkReturns = async () => {
   return returns;
 };
 
-const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavcopyDict = {}) => {
+const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavcopyDict = {}, fundamentals = {}) => {
   if (!marketData) return null;
   
   const { closes, highs, lows, vols, timestamps } = marketData;
