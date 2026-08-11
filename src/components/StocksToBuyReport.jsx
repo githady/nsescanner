@@ -61,6 +61,9 @@ const StocksToBuyReport = () => {
   const [mustHaveBbSqueeze, setMustHaveBbSqueeze] = useState(false);
   const [mustHaveObvAccumulation, setMustHaveObvAccumulation] = useState(false);
   const [mustHaveLowDrawdown, setMustHaveLowDrawdown] = useState(false);
+  const [mustHaveHighEps, setMustHaveHighEps] = useState(false);
+  const [mustHaveDividend, setMustHaveDividend] = useState(false);
+  const [mustHaveVolumeSpike, setMustHaveVolumeSpike] = useState(false);
   const [selectedSector, setSelectedSector] = useState('all');
   const [selectedMarketCap, setSelectedMarketCap] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState('all');
@@ -271,7 +274,7 @@ const StocksToBuyReport = () => {
     });
 
     return filtered;
-  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, mustHaveLowDrawdown, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
+  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, mustHaveLowDrawdown, mustHaveHighEps, mustHaveDividend, mustHaveVolumeSpike, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
