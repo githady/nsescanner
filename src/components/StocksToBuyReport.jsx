@@ -17,6 +17,7 @@ const StocksToBuyReport = () => {
   const [mustHaveBullishMacd, setMustHaveBullishMacd] = useState(false);
   const [mustHaveInstBuying, setMustHaveInstBuying] = useState(false);
   const [mustHaveHighDelivery, setMustHaveHighDelivery] = useState(false);
+  const [mustBeNearBreakout, setMustBeNearBreakout] = useState(false);
   const [mustBeNearIdealEntry, setMustBeNearIdealEntry] = useState(false);
   const [mustHaveUptrend, setMustHaveUptrend] = useState(false);
   const [mustHaveDowntrend, setMustHaveDowntrend] = useState(false);
@@ -155,6 +156,9 @@ const StocksToBuyReport = () => {
     if (mustHaveHighDelivery) {
       filtered = filtered.filter(s => s.deliveryPct > 60);
     }
+    if (mustBeNearBreakout) {
+      filtered = filtered.filter(s => s.distanceToHigh !== undefined && s.distanceToHigh >= -5 && s.distanceToHigh <= 0);
+    }
     if (mustBeNearIdealEntry) {
       filtered = filtered.filter(s => s.aboveSma50 && s.price <= s.idealEntry * 1.02);
     }
@@ -204,7 +208,7 @@ const StocksToBuyReport = () => {
     });
 
     return filtered;
-  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
+  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
@@ -465,6 +469,10 @@ const StocksToBuyReport = () => {
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveHighDelivery ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveHighDelivery} onChange={(e) => setMustHaveHighDelivery(e.target.checked)} style={{ display: 'none' }} />
                   High Delivery
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustBeNearBreakout ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustBeNearBreakout} onChange={(e) => setMustBeNearBreakout(e.target.checked)} style={{ display: 'none' }} />
+                  Near Breakout
                 </label>
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustBeNearIdealEntry ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustBeNearIdealEntry} onChange={(e) => setMustBeNearIdealEntry(e.target.checked)} style={{ display: 'none' }} />

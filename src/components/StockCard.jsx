@@ -251,6 +251,11 @@ const StockCard = ({ stock }) => {
               <span className="metric-label">ATR (Volatility)</span>
               <span className="metric-value">
                 ₹{stock.currentAtr?.toFixed(2) || 'N/A'}
+                {stock.currentAtr && stock.price && (
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginLeft: '0.25rem' }}>
+                    ({((stock.currentAtr / stock.price) * 100).toFixed(1)}%)
+                  </span>
+                )}
               </span>
             </div>
 
