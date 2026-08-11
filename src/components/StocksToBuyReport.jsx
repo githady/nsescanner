@@ -151,8 +151,8 @@ const StocksToBuyReport = () => {
       return (b.algoUpside || 0) - (a.algoUpside || 0);
     });
 
-    // Slice the top 10 candidates and mark them as perfect setups
-    let topPicks = candidates.slice(0, 10).map(s => ({ ...s, isPerfectSetup: true }));
+    // Do not slice! We want to show all perfect setups found.
+    let topPicks = candidates.map(s => ({ ...s, isPerfectSetup: true }));
     
     // If we don't have 10 strict candidates, fill the rest with the highest RS Rating Nifty 500 stocks
     if (topPicks.length < 10) {
@@ -363,13 +363,19 @@ const StocksToBuyReport = () => {
                 </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
-                    <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>AI Top 10 Picks</h2>
+                    <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>
+                      {aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length > 0 
+                        ? `AI Perfect Setups (${aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length})`
+                        : 'AI Momentum Picks'}
+                    </h2>
                     <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#e2e8f0', border: '1px solid rgba(255,255,255,0.2)' }}>
                       Top Sector: {aiRecommendation.topSector?.name || 'N/A'}
                     </span>
                   </div>
                   <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                    These Nifty 500 stocks possess the highest mathematical probability setups today. Scroll to see all 10.
+                    {aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length > 0 
+                      ? 'These stocks possess the highest mathematical probability setups today based on strict momentum and institutional volume criteria.'
+                      : 'No perfect setups found today. Showing the highest Relative Strength momentum stocks instead.'}
                   </p>
                 </div>
               </div>
