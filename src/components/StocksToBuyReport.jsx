@@ -14,7 +14,7 @@ const StocksToBuyReport = () => {
 
   // Smart Search Parser
   const parseSmartSearch = (query) => {
-    const regex = /(price|rsi|delivery|volume|rs|macd|stoch|beta|atr)\s*(>|<|>=|<=|=|==)\s*([0-9.]+)/ig;
+    const regex = /(price|rsi|delivery|volume|rs|macd|stoch|beta|atr|eps|dividend|turnover)\s*(>|<|>=|<=|=|==)\s*([0-9.-]+)/ig;
     let match;
     const conditions = [];
     while ((match = regex.exec(query)) !== null) {
@@ -36,6 +36,9 @@ const StocksToBuyReport = () => {
       case 'stoch': stockVal = stock.stochK; break;
       case 'beta': stockVal = stock.beta; break;
       case 'atr': stockVal = stock.currentAtr; break;
+      case 'eps': stockVal = stock.epsGrowth; break;
+      case 'dividend': stockVal = stock.dividendYield; break;
+      case 'turnover': stockVal = stock.dailyTurnover; break;
     }
     if (stockVal === null || stockVal === undefined) return false;
     
