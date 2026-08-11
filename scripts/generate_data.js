@@ -306,15 +306,17 @@ const fetchLatestBhavcopy = async () => {
          await new Promise((resolve) => {
            Papa.parse(text, {
              header: true, skipEmptyLines: true,
+             transformHeader: h => h.trim(),
+             transform: v => v.trim(),
              complete: (results) => {
                results.data.forEach(row => {
-                 let sym = row['SYMBOL'] || row['symbol'];
-                 let series = row['SERIES'] || row['series'] || '';
-                 if (sym && series.trim() === 'EQ') {
-                   sym = sym.trim().toUpperCase() + '.NS';
+                 let sym = row['SYMBOL'];
+                 let series = row['SERIES'] || '';
+                 if (sym && series === 'EQ') {
+                   sym = sym.toUpperCase() + '.NS';
                    dict[sym] = {
-                     deliveryPct: parseFloat(row[' DELIV_PER'] || row['DELIV_PER'] || 0),
-                     vwap: parseFloat(row[' AVG_PRICE'] || row['AVG_PRICE'] || 0)
+                     deliveryPct: parseFloat(row['DELIV_PER'] || 0),
+                     vwap: parseFloat(row['AVG_PRICE'] || 0)
                    };
                  }
                });
