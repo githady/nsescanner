@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import StockCard from './StockCard';
-import { RefreshCw, Play, TrendingUp, TrendingDown, AlertCircle, Search, ArrowUpDown, X, Zap, SlidersHorizontal } from 'lucide-react';
+import { RefreshCw, Play, TrendingUp, TrendingDown, AlertCircle, Search, ArrowUpDown, X, Zap, SlidersHorizontal, Award, Sparkles } from 'lucide-react';
 import { fetchMarketData } from '../utils/scanner';
 import ChatBox from './ChatBox';
 
@@ -16,6 +16,8 @@ const StocksToBuyReport = () => {
   const [mustBeGoldenCross, setMustBeGoldenCross] = useState(false);
   const [mustHaveBullishMacd, setMustHaveBullishMacd] = useState(false);
   const [mustHaveInstBuying, setMustHaveInstBuying] = useState(false);
+  const [mustHaveHighDelivery, setMustHaveHighDelivery] = useState(false);
+  const [mustBeNearIdealEntry, setMustBeNearIdealEntry] = useState(false);
   const [mustHaveUptrend, setMustHaveUptrend] = useState(false);
   const [mustHaveDowntrend, setMustHaveDowntrend] = useState(false);
   const [mustHaveBbSqueeze, setMustHaveBbSqueeze] = useState(false);
@@ -86,6 +88,44 @@ const StocksToBuyReport = () => {
     return [{ name: 'all', avgChange: 0 }, ...sorted];
   }, [stocks]);
 
+  const aiRecommendation = useMemo(() => {
+    if (!stocks || stocks.length === 0 || !availableSectors) return null;
+
+    // Best Sector
+    const validSectors = availableSectors.filter(s => s.name !== 'all');
+    // already sorted by avgChange in availableSectors useMemo
+    const topSector = validSectors.length > 0 ? validSectors[0] : null;
+
+    // Best Stock (Uptrend, Momentum, Inst Buying, Nifty 500 only for safety)
+    let candidates = stocks.filter(s => 
+      s.aboveSma50 && 
+      s.consecutiveUp >= 2 && 
+      s.institutionalBuying &&
+      s.indices && s.indices.includes('Nifty 500')
+    );
+    
+    // Sort by RS Rating first, then Algo Upside
+    candidates.sort((a, b) => {
+      const rsA = a.rsRating || 0;
+      const rsB = b.rsRating || 0;
+      if (rsB !== rsA) return rsB - rsA;
+      return (b.algoUpside || 0) - (a.algoUpside || 0);
+    });
+
+    // Slice the top 10 candidates
+    let topPicks = candidates.slice(0, 10);
+    
+    // If we don't have 10 strict candidates, fill the rest with the highest RS Rating Nifty 500 stocks
+    if (topPicks.length < 10) {
+      const fillers = stocks
+        .filter(s => s.indices && s.indices.includes('Nifty 500') && !topPicks.find(p => p.id === s.id))
+        .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0));
+      topPicks = [...topPicks, ...fillers.slice(0, 10 - topPicks.length)];
+    }
+
+    return { topSector, topPicks };
+  }, [stocks, availableSectors]);
+
   const filteredAndSortedStocks = useMemo(() => {
     let filtered = [...stocks];
 
@@ -111,6 +151,12 @@ const StocksToBuyReport = () => {
     }
     if (mustHaveInstBuying) {
       filtered = filtered.filter(s => s.institutionalBuying);
+    }
+    if (mustHaveHighDelivery) {
+      filtered = filtered.filter(s => s.deliveryPct > 60);
+    }
+    if (mustBeNearIdealEntry) {
+      filtered = filtered.filter(s => s.aboveSma50 && s.price <= s.idealEntry * 1.02);
     }
     if (mustHaveUptrend) {
       filtered = filtered.filter(s => s.consecutiveUp >= 2);
@@ -158,7 +204,7 @@ const StocksToBuyReport = () => {
     });
 
     return filtered;
-  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
+  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
@@ -233,98 +279,220 @@ const StocksToBuyReport = () => {
           <p style={{ marginTop: '0.5rem' }}>Click "Start Scan" to fetch and analyze real-time market data.</p>
         </div>
       ) : (
-        <div style={{ width: '100%' }}>
-          
-          <div className="topbar-controls" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem', background: 'var(--surface)', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
-            
-            {/* Top Row: Search and Dropdowns */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+        <>
+          {aiRecommendation && aiRecommendation.topPicks && aiRecommendation.topPicks.length > 0 && (
+            <div className="ai-banner fade-in" style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
+              border: '1px solid rgba(139, 92, 246, 0.2)',
+              borderRadius: '16px',
+              padding: '1.5rem',
+              marginBottom: '2rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem',
+              boxShadow: '0 4px 20px -5px rgba(139, 92, 246, 0.15)'
+            }}>
+              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                <div style={{
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  boxShadow: '0 4px 12px rgba(139, 92, 246, 0.4)'
+                }}>
+                  <Sparkles size={24} color="#fff" />
+                </div>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
+                    <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>AI Top 10 Picks</h2>
+                    <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#e2e8f0', border: '1px solid rgba(255,255,255,0.2)' }}>
+                      Top Sector: {aiRecommendation.topSector?.name || 'N/A'}
+                    </span>
+                  </div>
+                  <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                    These Nifty 500 stocks possess the highest mathematical probability setups today. Scroll to see all 10.
+                  </p>
+                </div>
+              </div>
               
-              {/* Search Bar */}
-              <div style={{ display: 'flex', alignItems: 'center', background: 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0 12px', flex: '2 1 250px', minWidth: '250px' }}>
+              {/* Horizontal Scroll Container */}
+              <div style={{
+                display: 'flex',
+                gap: '1rem',
+                overflowX: 'auto',
+                paddingBottom: '0.5rem',
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'var(--text-tertiary) transparent'
+              }}>
+                {aiRecommendation.topPicks.map((pick, index) => (
+                  <div 
+                    key={pick.id}
+                    style={{
+                      background: 'rgba(21, 26, 37, 0.8)',
+                      border: '1px solid var(--border)',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.75rem',
+                      cursor: 'pointer',
+                      minWidth: '220px',
+                      transition: 'transform 0.2s, borderColor 0.2s'
+                    }}
+                    onClick={() => setSelectedStock(pick)}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{pick.id}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '140px' }}>{pick.name}</div>
+                      </div>
+                      <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)' }}>
+                        #{index + 1}
+                      </div>
+                    </div>
+                    
+                    <div style={{ height: '1px', width: '100%', background: 'var(--border)' }}></div>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                      <div>
+                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</div>
+                        <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--success)' }}>
+                          ₹{pick.algoTarget?.toFixed(2)} 
+                        </div>
+                      </div>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--success)' }}>
+                        +{pick.algoUpside?.toFixed(1)}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="dashboard-layout" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', width: '100%' }}>
+          
+          {/* Left Sidebar */}
+          <aside className="sidebar-controls fade-in" style={{ flex: '0 0 280px', position: 'sticky', top: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'var(--surface)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--border)', maxHeight: 'calc(100vh - 2rem)', overflowY: 'auto' }}>
+            
+            <div style={{ paddingBottom: '1rem', borderBottom: '1px solid var(--border)' }}>
+              <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>Filters</h3>
+            </div>
+
+            {/* Search Bar */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Search</label>
+              <div style={{ display: 'flex', alignItems: 'center', background: 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0 12px' }}>
                 <Search size={16} color="var(--text-secondary)" />
                 <input 
                   type="text" 
-                  placeholder="Search symbol, name, or sector..." 
+                  placeholder="Symbol, name..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{ background: 'transparent', border: 'none', color: '#fff', padding: '10px 8px', outline: 'none', width: '100%', fontSize: '0.95rem' }}
                 />
               </div>
-
-              {/* Sector Performance Dropdown */}
-              <select className="custom-select" style={{ flex: '1 1 180px', minWidth: '180px' }} value={selectedSector} onChange={(e) => setSelectedSector(e.target.value)}>
-                {availableSectors.map(s => (
-                  <option key={s.name} value={s.name}>
-                    {s.name === 'all' ? 'All Sectors' : `${s.avgChange > 1.0 ? '🔥 ' : ''}${s.name} (${s.avgChange > 0 ? '+' : ''}${s.avgChange.toFixed(1)}%)`}
-                  </option>
-                ))}
-              </select>
-              
-              {/* Market Cap Dropdown */}
-              <select className="custom-select" style={{ flex: '1 1 130px', minWidth: '130px' }} value={selectedMarketCap} onChange={(e) => setSelectedMarketCap(e.target.value)}>
-                <option value="all">All Caps</option>
-                <option value="Large Cap">Large Cap</option>
-                <option value="Mid Cap">Mid Cap</option>
-                <option value="Small Cap">Small Cap</option>
-                <option value="Micro Cap">Micro Cap</option>
-              </select>
-              
-              {/* Index Dropdown */}
-              <select className="custom-select" style={{ flex: '1 1 130px', minWidth: '130px' }} value={selectedIndex} onChange={(e) => setSelectedIndex(e.target.value)}>
-                <option value="all">All Indices</option>
-                <option value="Nifty 50">Nifty 50</option>
-                <option value="Nifty Next 50">Nifty Next 50</option>
-                <option value="Nifty 500">Nifty 500</option>
-                <option value="Nifty Midcap 150">Nifty Midcap 150</option>
-                <option value="Nifty Smallcap 250">Nifty Smallcap 250</option>
-                <option value="Nifty Bank">Nifty Bank</option>
-                <option value="Nifty IT">Nifty IT</option>
-                <option value="Nifty Auto">Nifty Auto</option>
-                <option value="Nifty Metal">Nifty Metal</option>
-                <option value="Nifty Pharma">Nifty Pharma</option>
-              </select>
             </div>
 
-            {/* Bottom Row: Technical Toggles */}
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', paddingTop: '0.5rem', borderTop: '1px dashed var(--border)' }}>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustBeAboveSma50 ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustBeAboveSma50} onChange={(e) => setMustBeAboveSma50(e.target.checked)} style={{ display: 'none' }} />
-                Above 50 SMA
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustBeGoldenCross ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustBeGoldenCross} onChange={(e) => setMustBeGoldenCross(e.target.checked)} style={{ display: 'none' }} />
-                Golden Cross
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveBullishMacd ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveBullishMacd} onChange={(e) => setMustHaveBullishMacd(e.target.checked)} style={{ display: 'none' }} />
-                Bullish MACD
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveInstBuying ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveInstBuying} onChange={(e) => setMustHaveInstBuying(e.target.checked)} style={{ display: 'none' }} />
-                Volume Spike
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveUptrend ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveUptrend} onChange={(e) => { setMustHaveUptrend(e.target.checked); if (e.target.checked) setMustHaveDowntrend(false); }} style={{ display: 'none' }} />
-                Daily Trend + (+2 Days)
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveDowntrend ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveDowntrend} onChange={(e) => { setMustHaveDowntrend(e.target.checked); if (e.target.checked) setMustHaveUptrend(false); }} style={{ display: 'none' }} />
-                Daily Trend - (-5 Days)
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveBbSqueeze ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveBbSqueeze} onChange={(e) => setMustHaveBbSqueeze(e.target.checked)} style={{ display: 'none' }} />
-                BB Squeeze
-              </label>
-              <label className="checkbox-label" style={{ margin: 0, padding: '0.5rem 1rem', background: mustHaveObvAccumulation ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s' }}>
-                <input type="checkbox" checked={mustHaveObvAccumulation} onChange={(e) => setMustHaveObvAccumulation(e.target.checked)} style={{ display: 'none' }} />
-                OBV Accumulation
-              </label>
-            </div>
-            
-          </div>
+            {/* Dropdowns */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Sector</label>
+                <select className="custom-select" value={selectedSector} onChange={(e) => setSelectedSector(e.target.value)}>
+                  {availableSectors.map(s => (
+                    <option key={s.name} value={s.name}>
+                      {s.name === 'all' ? 'All Sectors' : `${s.avgChange > 1.0 ? '🔥 ' : ''}${s.name} (${s.avgChange > 0 ? '+' : ''}${s.avgChange.toFixed(1)}%)`}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-          <div style={{ marginBottom: '1rem', color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Market Cap</label>
+                <select className="custom-select" value={selectedMarketCap} onChange={(e) => setSelectedMarketCap(e.target.value)}>
+                  <option value="all">All Caps</option>
+                  <option value="Large Cap">Large Cap</option>
+                  <option value="Mid Cap">Mid Cap</option>
+                  <option value="Small Cap">Small Cap</option>
+                  <option value="Micro Cap">Micro Cap</option>
+                </select>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Index</label>
+                <select className="custom-select" value={selectedIndex} onChange={(e) => setSelectedIndex(e.target.value)}>
+                  <option value="all">All Indices</option>
+                  <option value="Nifty 50">Nifty 50</option>
+                  <option value="Nifty Next 50">Nifty Next 50</option>
+                  <option value="Nifty 500">Nifty 500</option>
+                  <option value="Nifty Midcap 150">Nifty Midcap 150</option>
+                  <option value="Nifty Smallcap 250">Nifty Smallcap 250</option>
+                  <option value="Nifty Bank">Nifty Bank</option>
+                  <option value="Nifty IT">Nifty IT</option>
+                  <option value="Nifty Auto">Nifty Auto</option>
+                  <option value="Nifty Metal">Nifty Metal</option>
+                  <option value="Nifty Pharma">Nifty Pharma</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Technical Toggles */}
+            <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '0.75rem' }}>Technical Signals</label>
+              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustBeAboveSma50 ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustBeAboveSma50} onChange={(e) => setMustBeAboveSma50(e.target.checked)} style={{ display: 'none' }} />
+                  &gt; 50 SMA
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustBeGoldenCross ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustBeGoldenCross} onChange={(e) => setMustBeGoldenCross(e.target.checked)} style={{ display: 'none' }} />
+                  Golden Cross
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveBullishMacd ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveBullishMacd} onChange={(e) => setMustHaveBullishMacd(e.target.checked)} style={{ display: 'none' }} />
+                  MACD
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveInstBuying ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveInstBuying} onChange={(e) => setMustHaveInstBuying(e.target.checked)} style={{ display: 'none' }} />
+                  Inst. Buying
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveHighDelivery ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveHighDelivery} onChange={(e) => setMustHaveHighDelivery(e.target.checked)} style={{ display: 'none' }} />
+                  High Delivery
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustBeNearIdealEntry ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustBeNearIdealEntry} onChange={(e) => setMustBeNearIdealEntry(e.target.checked)} style={{ display: 'none' }} />
+                  Ideal Entry
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveUptrend ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveUptrend} onChange={(e) => { setMustHaveUptrend(e.target.checked); if (e.target.checked) setMustHaveDowntrend(false); }} style={{ display: 'none' }} />
+                  Trend + 
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveDowntrend ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveDowntrend} onChange={(e) => { setMustHaveDowntrend(e.target.checked); if (e.target.checked) setMustHaveUptrend(false); }} style={{ display: 'none' }} />
+                  Trend - 
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveBbSqueeze ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveBbSqueeze} onChange={(e) => setMustHaveBbSqueeze(e.target.checked)} style={{ display: 'none' }} />
+                  BB Squeeze
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveObvAccumulation ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveObvAccumulation} onChange={(e) => setMustHaveObvAccumulation(e.target.checked)} style={{ display: 'none' }} />
+                  OBV Accum.
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Content Area */}
+          <main style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ marginBottom: '1rem', color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
             Showing {filteredAndSortedStocks.length} of {stocks.length} stocks
           </div>
 
@@ -396,7 +564,9 @@ const StocksToBuyReport = () => {
                 </table>
               </div>
             )}
+          </main>
         </div>
+        </>
       )}
       
       {/* Modal Overlay for Stock Card */}

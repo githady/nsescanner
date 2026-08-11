@@ -77,7 +77,7 @@ const fetchBenchmarkReturns = async () => {
   return returns;
 };
 
-const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}) => {
+const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavcopyDict = {}) => {
   if (!marketData) return null;
   
   const { closes, highs, lows, vols, timestamps } = marketData;
@@ -225,6 +225,19 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}) => {
         marketCap = 'Small Cap';
     }
   }
+  
+  // Pivot Points Calculation (using the most recent daily candle)
+  const lastHigh = highs[highs.length - 1];
+  const lastLow = lows[lows.length - 1];
+  const pivot = (lastHigh + lastLow + currentPrice) / 3;
+  const s1 = (pivot * 2) - lastHigh;
+  const r1 = (pivot * 2) - lastLow;
+
+  // Delivery Percentage and VWAP from Bhavcopy (if available)
+  const bhavData = bhavcopyDict[stock.id] || {};
+  let deliveryPct = bhavData.deliveryPct || 0;
+  // Use official NSE VWAP if available, otherwise fallback to standard calculation
+  let vwap = bhavData.vwap && bhavData.vwap > 0 ? bhavData.vwap : pivot; 
 
   return {
     ...stock,
@@ -234,6 +247,11 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}) => {
     change1m,
     marketCap,
     turnoverCr,
+    deliveryPct,
+    vwap,
+    pivot,
+    s1,
+    r1,
     rsi: currentRsi,
     macdLine: currentMacd.MACD,
     macdSignal: currentMacd.signal,
@@ -272,9 +290,51 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}) => {
   };
 };
 
+const fetchLatestBhavcopy = async () => {
+  console.log('Fetching latest NSE Bhavcopy for Delivery Percentage...');
+  const d = new Date();
+  for(let i=0; i<7; i++) {
+    const pad = (n) => n.toString().padStart(2, '0');
+    const dStr = pad(d.getDate()) + pad(d.getMonth()+1) + d.getFullYear();
+    const url = 'https://nsearchives.nseindia.com/products/content/sec_bhavdata_full_' + dStr + '.csv';
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+      if (res.ok) {
+         console.log('Found latest bhavcopy for ' + dStr);
+         const text = await res.text();
+         const dict = {};
+         await new Promise((resolve) => {
+           Papa.parse(text, {
+             header: true, skipEmptyLines: true,
+             complete: (results) => {
+               results.data.forEach(row => {
+                 let sym = row['SYMBOL'] || row['symbol'];
+                 let series = row['SERIES'] || row['series'] || '';
+                 if (sym && series.trim() === 'EQ') {
+                   sym = sym.trim().toUpperCase() + '.NS';
+                   dict[sym] = {
+                     deliveryPct: parseFloat(row[' DELIV_PER'] || row['DELIV_PER'] || 0),
+                     vwap: parseFloat(row[' AVG_PRICE'] || row['AVG_PRICE'] || 0)
+                   };
+                 }
+               });
+               resolve();
+             }
+           });
+         });
+         return dict;
+      }
+    } catch (e) {}
+    d.setDate(d.getDate() - 1);
+  }
+  console.warn('Could not fetch any recent Bhavcopy.');
+  return {};
+};
+
 async function generateData() {
   const publicDir = path.join(__dirname, '../public');
   const indexDict = {};
+  const bhavcopyDict = await fetchLatestBhavcopy();
   
   // 1. Build Nifty 500 Dictionary for Accurate Sectors and Market Caps
   console.log('Fetching Nifty 500 Sector dictionary from NSE...');
@@ -412,7 +472,7 @@ async function generateData() {
     const batchPromises = batch.map(async (stock) => {
       const data = await fetchStockData(stock.id);
       if (data) {
-        return analyzeStock(stock, data, benchmarkReturns, indexDict);
+        return analyzeStock(stock, data, benchmarkReturns, indexDict, bhavcopyDict);
       }
       return null;
     });
@@ -426,6 +486,26 @@ async function generateData() {
        await delay(500); // 500ms delay between batches
     }
   }
+
+  // Calculate Sector Relative Strength (1-Month Return vs Sector Average)
+  const sectorAverages = {};
+  const sectorCounts = {};
+  results.forEach(s => {
+    if (!sectorAverages[s.sector]) {
+      sectorAverages[s.sector] = 0;
+      sectorCounts[s.sector] = 0;
+    }
+    sectorAverages[s.sector] += (s.change1m || 0);
+    sectorCounts[s.sector] += 1;
+  });
+  
+  Object.keys(sectorAverages).forEach(sec => {
+    sectorAverages[sec] = sectorAverages[sec] / sectorCounts[sec];
+  });
+  
+  results.forEach(s => {
+    s.rsSector = (s.change1m || 0) - (sectorAverages[s.sector] || 0);
+  });
 
   // Compute True RS Rating (Percentile 1-99)
   const validStocks = results.filter(s => s.rawRsScore !== undefined).sort((a, b) => a.rawRsScore - b.rawRsScore);

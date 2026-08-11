@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { MessageSquare, X, Send, Bot, User } from 'lucide-react';
+import Fuse from 'fuse.js';
 
 const ChatBox = ({ stocks, onSelectStock }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,16 @@ const ChatBox = ({ stocks, onSelectStock }) => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isOpen]);
+
+  // Initialize Fuse.js for dynamic fuzzy search
+  const fuse = useMemo(() => {
+    return new Fuse(stocks, {
+      keys: ['id', 'name', 'sector', 'marketCap'],
+      threshold: 0.3, // 0.0 is perfect match, 1.0 is match anything
+      ignoreLocation: true,
+      minMatchCharLength: 3
+    });
+  }, [stocks]);
 
   // NLP Parser Logic
   const parseQuery = (query) => {
@@ -50,7 +61,10 @@ const ChatBox = ({ stocks, onSelectStock }) => {
       'relative strength': 'rsRating',
       'upside': 'algoUpside',
       'target': 'algoTarget',
-      'stoploss': 'stopLoss'
+      'stoploss': 'stopLoss',
+      'trend': 'consecutiveUp',
+      'uptrend': 'consecutiveUp',
+      'downtrend': 'consecutiveDown'
     };
 
     // 3. Extract Math Filters
@@ -72,7 +86,7 @@ const ChatBox = ({ stocks, onSelectStock }) => {
     const sectors = ['information technology', 'financial services', 'banks', 'bank', 'oil', 'pharma', 'auto', 'fmcg', 'metal', 'power', 'telecom', 'realty', 'it'];
     const marketCaps = ['large', 'mid', 'small', 'micro'];
     
-    let targetSectors = sectors.filter(s => q.includes(s + ' sector') || q.includes(s + ' stocks') || q.match(new RegExp(`\\b${s}\\b`)));
+    let targetSectors = sectors.filter(s => q.includes(s + ' sector') || q.includes(s + ' stocks') || q.match(new RegExp('\\\\b' + s + '\\\\b')));
     if (targetSectors.includes('it')) targetSectors.push('information technology');
     if (targetSectors.includes('bank') || targetSectors.includes('banks')) targetSectors.push('financial services');
     
@@ -137,25 +151,72 @@ const ChatBox = ({ stocks, onSelectStock }) => {
     let responseText = '';
     let foundStocks = [];
 
-    if (!hasKeywords) {
-      // Try to find a stock by symbol
-      const symbolMatch = stocks.find(s => s.id.toLowerCase().includes(q) || s.name.toLowerCase().includes(q));
-      if (symbolMatch) {
-        responseText = `I found a stock matching "${query}".`;
-        foundStocks = [symbolMatch];
+    // Try to find a stock by symbol or name regardless of keywords
+    const cleanQ = q.replace(/\s+/g, '');
+    const symbolMatch = stocks.find(s => {
+      const cleanName = s.name.toLowerCase().replace(/\s+(limited|ltd\.?|corporation|corp\.?|company|co\.?|l\.?|inc\.?)$/gi, '');
+      const cleanId = s.id.toLowerCase().replace('.ns', '');
+      return q.includes(cleanName) || cleanQ.includes(cleanId);
+    });
+
+    if (symbolMatch && !hasKeywords) {
+      // Check if they are asking about specific data points
+      let requestedProps = [];
+      for (const [key, value] of Object.entries(propMap)) {
+        // Avoid duplicate properties (e.g. 'rs rating' and 'rs' map to same value)
+        if (q.includes(key) && !requestedProps.some(p => p.value === value)) {
+          requestedProps.push({ key, value });
+        }
+      }
+
+      if (requestedProps.length > 0) {
+        let answers = requestedProps.map(p => {
+          let val = symbolMatch[p.value];
+          if (val === undefined || val === null) return 'N/A';
+          if (p.value === 'consecutiveUp') return val > 0 ? val + ' days up' : 'neutral or down';
+          if (p.value === 'consecutiveDown') return val > 0 ? val + ' days down' : 'neutral or up';
+          if (typeof val === 'number' && !Number.isInteger(val)) return val.toFixed(2);
+          return val;
+        });
+        
+        let propsString = requestedProps.map(p => p.key).join(' and ');
+        let answersString = answers.join(' and ');
+        responseText = `For ${symbolMatch.name}, the ${propsString} is ${answersString}.`;
       } else {
-        responseText = `I'm sorry, I didn't understand that. Try asking for "oversold stocks", "price < 500", or "large cap IT stocks with rs rating above 80".`;
+        responseText = `Here is the data for ${symbolMatch.name}.`;
+      }
+      foundStocks = [symbolMatch];
+    } else if (!hasKeywords) {
+      // Fallback to fuzzy search over all data!
+      const fuseResults = fuse.search(query);
+      if (fuseResults.length > 0) {
+        responseText = `I couldn't find specific criteria, but here are the best matches for "${query}":`;
+        foundStocks = fuseResults.map(r => r.item).slice(0, 10);
+      } else {
+        responseText = `I'm sorry, I couldn't find anything matching "${query}".`;
       }
     } else {
-      if (results.length === 0) {
-        responseText = `I couldn't find any stocks matching those criteria right now.`;
-      } else if (results.length === stocks.length) {
-        responseText = `I couldn't identify specific criteria. Try asking for "oversold stocks", "price < 500", or "large cap IT stocks with rs rating above 80".`;
+      // If we had a specific symbol but also keywords, filter the results to just that symbol
+      if (symbolMatch) {
+        const intersection = results.filter(s => s.id === symbolMatch.id);
+        if (intersection.length > 0) {
+           responseText = `Yes, ${symbolMatch.name} matches your criteria!`;
+           foundStocks = intersection;
+        } else {
+           responseText = `No, ${symbolMatch.name} does not match those criteria.`;
+           foundStocks = [];
+        }
       } else {
-        responseText = `I found ${results.length} stocks matching your criteria.`;
-        // Limit to 10 so we don't flood chat
-        foundStocks = results.slice(0, 10);
-        if (results.length > 10) responseText += ` Here are the top 10:`;
+        if (results.length === 0) {
+          responseText = `I couldn't find any stocks matching those criteria right now.`;
+        } else if (results.length === stocks.length) {
+          responseText = `I couldn't identify specific criteria. Try asking for "oversold stocks", "price < 500", or "large cap IT stocks with rs rating above 80".`;
+        } else {
+          responseText = `I found ${results.length} stocks matching your criteria.`;
+          // Limit to 10 so we don't flood chat
+          foundStocks = results.slice(0, 10);
+          if (results.length > 10) responseText += ` Here are the top 10:`;
+        }
       }
     }
 

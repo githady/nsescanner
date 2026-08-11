@@ -538,13 +538,29 @@ body::before {
     flex-direction: column;
     align-items: stretch;
   }
+  .dashboard-layout {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  .ai-banner {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+  }
+  .sidebar-controls {
+    flex: none !important;
+    width: 100% !important;
+    position: static !important;
+    max-height: none !important;
+  }
 }
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sections-grid {
     grid-template-columns: 1fr;
   }
-  
+}
+
+@media (max-width: 768px) {
   .app-container {
     padding: 1rem;
   }
@@ -557,12 +573,14 @@ body::before {
     gap: 1rem;
   }
   
-  .header > div {
-    justify-self: center !important;
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
   
   .metrics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .stocks-grid {
