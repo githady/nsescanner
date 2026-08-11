@@ -67,11 +67,47 @@ const StockCard = ({ stock }) => {
       </div>
       
       <div className="sections-grid">
-        
         {/* SECTION 1: Key Price Levels */}
         <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Key Price Levels</h4>
           <div className="metrics-grid">
+            <div className="metric">
+              <span className="metric-label">Ideal Entry</span>
+              <span className="metric-value">
+                <ArrowRight size={14} color="var(--primary)" />
+                ₹{stock.idealEntry?.toFixed(2) || stock.price?.toFixed(2) || 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Target Price</span>
+              <span className="metric-value">
+                <Target size={14} color="var(--success)" />
+                ₹{stock.algoTarget?.toFixed(2) || 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Stop Loss</span>
+              <span className="metric-value">
+                <Shield size={14} color="var(--danger)" />
+                ₹{stock.stopLoss?.toFixed(2) || 'N/A'}
+              </span>
+            </div>
+            
+            {stock.pivot !== undefined && (
+              <>
+                <div className="metric">
+                  <span className="metric-label">Support (S1)</span>
+                  <span className="metric-value" style={{color: 'var(--danger)'}}>₹{stock.s1?.toFixed(2)}</span>
+                </div>
+                <div className="metric">
+                  <span className="metric-label">Resistance (R1)</span>
+                  <span className="metric-value" style={{color: 'var(--success)'}}>₹{stock.r1?.toFixed(2)}</span>
+                </div>
+              </>
+            )}
+
             <div className="metric">
               <span className="metric-label">52-Week High</span>
               <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
@@ -93,53 +129,6 @@ const StockCard = ({ stock }) => {
             </div>
 
             <div className="metric">
-              <span className="metric-label">Ideal Entry</span>
-              <span className="metric-value">
-                <ArrowRight size={14} color="var(--primary)" />
-                ₹{stock.idealEntry?.toFixed(2) || stock.price?.toFixed(2) || 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Stop Loss</span>
-              <span className="metric-value">
-                <Shield size={14} color="var(--danger)" />
-                ₹{stock.stopLoss?.toFixed(2) || 'N/A'}
-              </span>
-            </div>
-            
-            <div className="metric">
-              <span className="metric-label">Target Price</span>
-              <span className="metric-value">
-                <Target size={14} color="var(--success)" />
-                ₹{stock.algoTarget?.toFixed(2) || 'N/A'}
-              </span>
-            </div>
-            
-            {stock.pivot !== undefined && (
-              <>
-                <div className="metric">
-                  <span className="metric-label">Pivot (P)</span>
-                  <span className="metric-value">₹{stock.pivot.toFixed(2)}</span>
-                </div>
-                <div className="metric">
-                  <span className="metric-label">Support (S1)</span>
-                  <span className="metric-value" style={{color: 'var(--danger)'}}>₹{stock.s1?.toFixed(2)}</span>
-                </div>
-                <div className="metric">
-                  <span className="metric-label">Resistance (R1)</span>
-                  <span className="metric-value" style={{color: 'var(--success)'}}>₹{stock.r1?.toFixed(2)}</span>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* SECTION 2: Momentum & Trend */}
-        <div>
-          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Momentum & Trend</h4>
-          <div className="metrics-grid">
-            <div className="metric">
               <span className="metric-label">1W Return</span>
               <span className="metric-value" style={{ color: stock.change1w > 0 ? 'var(--success)' : stock.change1w < 0 ? 'var(--danger)' : 'inherit' }}>
                 {stock.change1w > 0 ? '+' : ''}{stock.change1w?.toFixed(1) || '0.0'}%
@@ -152,28 +141,24 @@ const StockCard = ({ stock }) => {
                 {stock.change1m > 0 ? '+' : ''}{stock.change1m?.toFixed(1) || '0.0'}%
               </span>
             </div>
-            
-            <div className="metric">
-              <span className="metric-label">Sector Outperformance</span>
-              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-                <span style={{ color: stock.rsSector > 0 ? 'var(--success)' : stock.rsSector < 0 ? 'var(--danger)' : 'inherit' }}>
-                  {stock.rsSector > 0 ? '+' : ''}{stock.rsSector?.toFixed(1) || '0.0'}%
-                </span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>vs Sector</span>
-              </span>
-            </div>
 
+            {stock.pivot !== undefined && (
+              <div className="metric">
+                <span className="metric-label">Pivot (P)</span>
+                <span className="metric-value">₹{stock.pivot.toFixed(2)}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* SECTION 2: Momentum & Trend */}
+        <div>
+          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Momentum & Trend</h4>
+          <div className="metrics-grid">
             <div className="metric">
               <span className="metric-label">Daily Trend</span>
               <span className="metric-value" style={{ color: stock.consecutiveUp > 0 ? 'var(--success)' : stock.consecutiveDown > 0 ? 'var(--danger)' : 'inherit' }}>
                 {stock.consecutiveUp > 0 ? `+${stock.consecutiveUp} Days` : stock.consecutiveDown > 0 ? `-${stock.consecutiveDown} Days` : 'Flat'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">MACD (Line | Sig)</span>
-              <span className="metric-value">
-                {stock.macdLine?.toFixed(2)} | {stock.macdSignal?.toFixed(2)}
               </span>
             </div>
 
@@ -185,6 +170,13 @@ const StockCard = ({ stock }) => {
             </div>
 
             <div className="metric">
+              <span className="metric-label">OBV Trend</span>
+              <span className="metric-value" style={{ color: stock.isAccumulating ? 'var(--success)' : 'var(--danger)' }}>
+                {stock.isAccumulating ? 'Accumulation' : 'Distribution'}
+              </span>
+            </div>
+
+            <div className="metric">
               <span className="metric-label">Delivery %</span>
               <span className="metric-value" style={{ color: stock.deliveryPct > 60 ? 'var(--success)' : stock.deliveryPct < 30 ? 'var(--danger)' : 'inherit' }}>
                 {stock.deliveryPct?.toFixed(1) || '0.0'}%
@@ -192,9 +184,41 @@ const StockCard = ({ stock }) => {
             </div>
 
             <div className="metric">
-              <span className="metric-label">OBV Trend</span>
-              <span className="metric-value" style={{ color: stock.isAccumulating ? 'var(--success)' : 'var(--danger)' }}>
-                {stock.isAccumulating ? 'Accumulation' : 'Distribution'}
+              <span className="metric-label">MACD (Line | Sig)</span>
+              <span className="metric-value">
+                {stock.macdLine?.toFixed(2)} | {stock.macdSignal?.toFixed(2)}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Sector Outperformance</span>
+              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+                <span style={{ color: stock.rsSector > 0 ? 'var(--success)' : stock.rsSector < 0 ? 'var(--danger)' : 'inherit' }}>
+                  {stock.rsSector > 0 ? '+' : ''}{stock.rsSector?.toFixed(1) || '0.0'}%
+                </span>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>vs Sector</span>
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">1Y Max Drawdown</span>
+              <span className="metric-value" style={{ color: 'var(--danger)' }}>
+                -{stock.maxDrawdown?.toFixed(1)}%
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Volume (24h)</span>
+              <span className="metric-value">
+                <BarChart2 size={14} color="var(--primary)" />
+                {formatVolume(stock.volume)}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Dividend Yield</span>
+              <span className="metric-value" style={{ color: stock.dividendYield > 2 ? 'var(--success)' : 'inherit' }}>
+                {stock.dividendYield ? `${stock.dividendYield.toFixed(2)}%` : 'N/A'}
               </span>
             </div>
           </div>
@@ -209,25 +233,6 @@ const StockCard = ({ stock }) => {
               <span className="metric-value">
                 <Activity size={14} color={stock.rsi < 30 ? 'var(--success)' : stock.rsi > 70 ? 'var(--danger)' : 'var(--primary)'} />
                 {stock.rsi?.toFixed(1) || 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Stochastic (%K | %D)</span>
-              <span className="metric-value" style={{ color: stock.stochK < 20 ? 'var(--success)' : stock.stochK > 80 ? 'var(--danger)' : 'inherit' }}>
-                {stock.stochK?.toFixed(0)} | {stock.stochD?.toFixed(0)}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">VWAP (Daily)</span>
-              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-                ₹{stock.vwap?.toFixed(2) || 'N/A'}
-                {stock.vwap && stock.price && (
-                  <span style={{ fontSize: '0.7rem', color: stock.price > stock.vwap ? 'var(--success)' : 'var(--danger)' }}>
-                    ({(((stock.price - stock.vwap) / stock.vwap) * 100).toFixed(1)}%)
-                  </span>
-                )}
               </span>
             </div>
 
@@ -256,17 +261,27 @@ const StockCard = ({ stock }) => {
             </div>
 
             <div className="metric">
-              <span className="metric-label">1Y Max Drawdown</span>
-              <span className="metric-value" style={{ color: 'var(--danger)' }}>
-                -{stock.maxDrawdown?.toFixed(1)}%
+              <span className="metric-label">VWAP (Daily)</span>
+              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+                ₹{stock.vwap?.toFixed(2) || 'N/A'}
+                {stock.vwap && stock.price && (
+                  <span style={{ fontSize: '0.7rem', color: stock.price > stock.vwap ? 'var(--success)' : 'var(--danger)' }}>
+                    ({(((stock.price - stock.vwap) / stock.vwap) * 100).toFixed(1)}%)
+                  </span>
+                )}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Stochastic (%K | %D)</span>
+              <span className="metric-value" style={{ color: stock.stochK < 20 ? 'var(--success)' : stock.stochK > 80 ? 'var(--danger)' : 'inherit' }}>
+                {stock.stochK?.toFixed(0)} | {stock.stochD?.toFixed(0)}
               </span>
             </div>
           </div>
         </div>
 
-
-
-        {/* SECTION 4: Volatility, Risk, & Liquidity */}
+        {/* SECTION 4: Volatility, Risk & Liquidity */}
         <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volatility, Risk & Liquidity</h4>
           <div className="metrics-grid">
@@ -309,14 +324,6 @@ const StockCard = ({ stock }) => {
                 {stock.volRatio?.toFixed(1)}x Avg
               </span>
             </div>
-
-            <div className="metric">
-              <span className="metric-label">Volume (24h)</span>
-              <span className="metric-value">
-                <BarChart2 size={14} color="var(--primary)" />
-                {formatVolume(stock.volume)}
-              </span>
-            </div>
           </div>
         </div>
 
@@ -324,6 +331,13 @@ const StockCard = ({ stock }) => {
         <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fundamentals & Valuation</h4>
           <div className="metrics-grid">
+            <div className="metric">
+              <span className="metric-label">Market Cap</span>
+              <span className="metric-value">
+                {stock.marketCapExact ? `₹${(stock.marketCapExact / 10000000).toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr` : 'N/A'}
+              </span>
+            </div>
+
             <div className="metric">
               <span className="metric-label">Proj. EPS Growth</span>
               <span className="metric-value" style={{ color: stock.epsGrowth > 15 ? 'var(--success)' : stock.epsGrowth < 0 ? 'var(--danger)' : 'inherit' }}>
@@ -351,22 +365,9 @@ const StockCard = ({ stock }) => {
                 {stock.priceToBook ? stock.priceToBook.toFixed(2) : 'N/A'}
               </span>
             </div>
-
-            <div className="metric">
-              <span className="metric-label">Dividend Yield</span>
-              <span className="metric-value" style={{ color: stock.dividendYield > 2 ? 'var(--success)' : 'inherit' }}>
-                {stock.dividendYield ? `${stock.dividendYield.toFixed(2)}%` : 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Market Cap</span>
-              <span className="metric-value">
-                {stock.marketCapExact ? `₹${(stock.marketCapExact / 10000000).toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr` : 'N/A'}
-              </span>
-            </div>
           </div>
         </div>
+
       </div>
     </div>
   );
