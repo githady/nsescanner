@@ -354,8 +354,8 @@ const StockCard = ({ stock }) => {
 
             <div className="metric">
               <span className="metric-label">Dividend Yield</span>
-              <span className="metric-value" style={{ color: stock.dividendYield > 0.02 ? 'var(--success)' : 'inherit' }}>
-                {stock.dividendYield ? `${(stock.dividendYield * 100).toFixed(2)}%` : 'N/A'}
+              <span className="metric-value" style={{ color: stock.dividendYield > 2 ? 'var(--success)' : 'inherit' }}>
+                {stock.dividendYield ? `${stock.dividendYield.toFixed(2)}%` : 'N/A'}
               </span>
             </div>
 
