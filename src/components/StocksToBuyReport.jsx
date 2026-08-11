@@ -150,14 +150,15 @@ const StocksToBuyReport = () => {
       return (b.algoUpside || 0) - (a.algoUpside || 0);
     });
 
-    // Slice the top 10 candidates
-    let topPicks = candidates.slice(0, 10);
+    // Slice the top 10 candidates and mark them as perfect setups
+    let topPicks = candidates.slice(0, 10).map(s => ({ ...s, isPerfectSetup: true }));
     
     // If we don't have 10 strict candidates, fill the rest with the highest RS Rating Nifty 500 stocks
     if (topPicks.length < 10) {
       const fillers = stocks
         .filter(s => s.indices && s.indices.includes('Nifty 500') && !topPicks.find(p => p.id === s.id))
-        .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0));
+        .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0))
+        .map(s => ({ ...s, isPerfectSetup: false }));
       topPicks = [...topPicks, ...fillers.slice(0, 10 - topPicks.length)];
     }
 
@@ -402,7 +403,14 @@ const StocksToBuyReport = () => {
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <div>
-                        <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{pick.id}</div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{pick.id}</div>
+                          {pick.isPerfectSetup && (
+                            <div style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--success)', fontSize: '0.65rem', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 700, border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                              PERFECT SETUP
+                            </div>
+                          )}
+                        </div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '140px' }}>{pick.name}</div>
                       </div>
                       <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)' }}>
