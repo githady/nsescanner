@@ -176,6 +176,27 @@ const StockCard = ({ stock }) => {
                 {stock.macdLine?.toFixed(2)} | {stock.macdSignal?.toFixed(2)}
               </span>
             </div>
+
+            <div className="metric">
+              <span className="metric-label">Beta (1y)</span>
+              <span className="metric-value">
+                {stock.beta !== undefined ? stock.beta.toFixed(2) : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Delivery %</span>
+              <span className="metric-value" style={{ color: stock.deliveryPct > 60 ? 'var(--success)' : stock.deliveryPct < 30 ? 'var(--danger)' : 'inherit' }}>
+                {stock.deliveryPct?.toFixed(1) || '0.0'}%
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">OBV Trend</span>
+              <span className="metric-value" style={{ color: stock.isAccumulating ? 'var(--success)' : 'var(--danger)' }}>
+                {stock.isAccumulating ? 'Accumulation' : 'Distribution'}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -233,6 +254,13 @@ const StockCard = ({ stock }) => {
                 )}
               </span>
             </div>
+
+            <div className="metric">
+              <span className="metric-label">1Y Max Drawdown</span>
+              <span className="metric-value" style={{ color: 'var(--danger)' }}>
+                -{stock.maxDrawdown?.toFixed(1)}%
+              </span>
+            </div>
           </div>
         </div>
 
@@ -240,13 +268,6 @@ const StockCard = ({ stock }) => {
         <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volatility, Risk & Liquidity</h4>
           <div className="metrics-grid">
-            <div className="metric">
-              <span className="metric-label">Beta (1y)</span>
-              <span className="metric-value">
-                {stock.beta !== undefined ? stock.beta.toFixed(2) : 'N/A'}
-              </span>
-            </div>
-
             <div className="metric">
               <span className="metric-label">ATR (Volatility)</span>
               <span className="metric-value">
@@ -274,23 +295,9 @@ const StockCard = ({ stock }) => {
             </div>
 
             <div className="metric">
-              <span className="metric-label">1Y Max Drawdown</span>
-              <span className="metric-value" style={{ color: 'var(--danger)' }}>
-                -{stock.maxDrawdown?.toFixed(1)}%
-              </span>
-            </div>
-
-            <div className="metric">
               <span className="metric-label">Daily Turnover</span>
               <span className="metric-value">
                 {stock.turnoverCr ? `₹${stock.turnoverCr.toFixed(1)} Cr` : 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Delivery %</span>
-              <span className="metric-value" style={{ color: stock.deliveryPct > 60 ? 'var(--success)' : stock.deliveryPct < 30 ? 'var(--danger)' : 'inherit' }}>
-                {stock.deliveryPct?.toFixed(1) || '0.0'}%
               </span>
             </div>
 
@@ -306,13 +313,6 @@ const StockCard = ({ stock }) => {
               <span className="metric-value">
                 <BarChart2 size={14} color="var(--primary)" />
                 {formatVolume(stock.volume)}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">OBV Trend</span>
-              <span className="metric-value" style={{ color: stock.isAccumulating ? 'var(--success)' : 'var(--danger)' }}>
-                {stock.isAccumulating ? 'Accumulation' : 'Distribution'}
               </span>
             </div>
           </div>
