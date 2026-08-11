@@ -35,6 +35,11 @@ jobs:
       - name: Build Application
         run: npm run build
         
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
       - name: Deploy to GitHub Pages
         run: npx gh-pages@6.1.0 -d dist --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
