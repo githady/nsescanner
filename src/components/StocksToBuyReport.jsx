@@ -135,13 +135,17 @@ const StocksToBuyReport = () => {
     // already sorted by avgChange in availableSectors useMemo
     const topSector = validSectors.length > 0 ? validSectors[0] : null;
 
-    // Best Stock (Ultimate Formula: Nifty 500, Uptrend, Momentum, Inst Buying, Breakout)
+    // Best Stock (Ultimate 5-Layer Formula: Nifty 500, Momentum, Technicals, Volatility, Fundamentals, Liquidity)
     let candidates = stocks.filter(s => {
-      return s.indices && s.indices.includes('Nifty 500') &&
-             s.aboveSma50 && 
-             s.rsi > 60 && 
-             s.institutionalBuying && 
-             s.distanceToHigh <= 10;
+      if (!s.indices || !s.indices.includes('Nifty 500')) return false;
+      
+      const passMomentum = s.rsRating > 80 && s.aboveSma50 && (s.currentSma50 > s.currentSma200);
+      const passTechnicals = s.rsi >= 45 && s.rsi <= 70 && s.bullishMacd;
+      const passVolatility = s.maxDrawdown < 25 && (s.isSqueezing || s.volRatio > 1.5);
+      const passFundamentals = s.epsGrowth > 15 && s.trailingPE > 0;
+      const passLiquidity = s.turnoverCr > 15 && s.deliveryPct > 40;
+
+      return passMomentum && passTechnicals && passVolatility && passFundamentals && passLiquidity;
     });
     
     // Sort by RS Rating first, then Algo Upside
@@ -152,16 +156,15 @@ const StocksToBuyReport = () => {
       return (b.algoUpside || 0) - (a.algoUpside || 0);
     });
 
-    // Do not slice! We want to show all perfect setups found.
     let topPicks = candidates.map(s => ({ ...s, isPerfectSetup: true }));
     
-    // If we don't have 10 strict candidates, fill the rest with the highest RS Rating Nifty 500 stocks
-    if (topPicks.length < 10) {
+    // If NO perfect setups are found, fallback to the top 10 highest RS Rating Nifty 500 stocks
+    if (topPicks.length === 0) {
       const fillers = stocks
-        .filter(s => s.indices && s.indices.includes('Nifty 500') && !topPicks.find(p => p.id === s.id))
+        .filter(s => s.indices && s.indices.includes('Nifty 500'))
         .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0))
         .map(s => ({ ...s, isPerfectSetup: false }));
-      topPicks = [...topPicks, ...fillers.slice(0, 10 - topPicks.length)];
+      topPicks = fillers.slice(0, 10);
     }
 
     return { topSector, topPicks };
