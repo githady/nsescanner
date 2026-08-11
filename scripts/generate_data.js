@@ -288,7 +288,11 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavc
     rawRsScore,
     isAccumulating,
     beta,
-    indices: stock.indices || []
+    indices: stock.indices || [],
+    trailingPE: fundamentals.trailingPE,
+    forwardPE: fundamentals.forwardPE,
+    priceToBook: fundamentals.priceToBook,
+    marketCapExact: fundamentals.marketCapExact
   };
 };
 
@@ -483,10 +487,25 @@ async function generateData() {
     const batch = universe.slice(i, i + batchSize);
     console.log(`Processing batch ${Math.floor(i/batchSize) + 1} / ${Math.ceil(universe.length/batchSize)}`);
     
+    let quotes = [];
+    try {
+      const symbols = batch.map(s => s.id);
+      quotes = await yahooFinance.quote(symbols);
+    } catch (e) {
+      console.warn('Failed to fetch quotes for batch:', e.message);
+    }
+
     const batchPromises = batch.map(async (stock) => {
       const data = await fetchStockData(stock.id);
       if (data) {
-        return analyzeStock(stock, data, benchmarkReturns, indexDict, bhavcopyDict);
+        const quote = quotes.find(q => q.symbol === stock.id) || {};
+        const fundamentals = {
+          trailingPE: quote.trailingPE,
+          forwardPE: quote.forwardPE,
+          priceToBook: quote.priceToBook,
+          marketCapExact: quote.marketCap
+        };
+        return analyzeStock(stock, data, benchmarkReturns, indexDict, bhavcopyDict, fundamentals);
       }
       return null;
     });

@@ -298,7 +298,7 @@ const StockCard = ({ stock }) => {
           </div>
         </div>
 
-        {/* SECTION 5: Volatility, Risk, & Liquidity */}
+        {/* SECTION 4: Volatility, Risk, & Liquidity */}
         <div style={{ gridColumn: '1 / -1' }}>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volatility, Risk & Liquidity</h4>
           <div className="metrics-grid">
