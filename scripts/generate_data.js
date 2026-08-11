@@ -77,7 +77,7 @@ const fetchBenchmarkReturns = async () => {
   return returns;
 };
 
-const analyzeStock = (stock, marketData, benchmarkReturns) => {
+const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}) => {
   if (!marketData) return null;
   
   const { closes, highs, lows, vols, timestamps } = marketData;
@@ -114,9 +114,10 @@ const analyzeStock = (stock, marketData, benchmarkReturns) => {
   const aboveSma50 = currentPrice > currentSma50;
   const goldenAligned = currentSma200 > 0 && currentPrice > currentSma50 && currentSma50 > currentSma200;
   
-  const stopLoss = currentPrice - (1.5 * currentAtr);
-  const algoTarget = currentPrice + (3.0 * currentAtr);
-  const algoUpside = ((algoTarget - currentPrice) / currentPrice) * 100;
+  const idealEntry = (aboveSma50 && currentSma50 > 0) ? currentSma50 : currentPrice;
+  const stopLoss = idealEntry - (1.5 * currentAtr);
+  const algoTarget = idealEntry + (3.0 * currentAtr);
+  const algoUpside = idealEntry > 0 ? ((algoTarget - idealEntry) / idealEntry) * 100 : 0;
   
   const currentVol = vols[vols.length - 1];
   const avgVol = volSma20.length > 0 ? volSma20[volSma20.length - 1] : 1;
@@ -204,13 +205,25 @@ const analyzeStock = (stock, marketData, benchmarkReturns) => {
   const turnoverCr = (currentVol * currentPrice) / 10000000;
   
   let marketCap = 'Micro Cap';
-  // Use Average Daily Turnover as a proxy for Market Cap/Liquidity
-  if (turnoverCr > 150) {
-      marketCap = 'Large Cap';
-  } else if (turnoverCr > 25) {
-      marketCap = 'Mid Cap';
-  } else if (turnoverCr > 2) {
-      marketCap = 'Small Cap';
+  const indices = indexDict[stock.id] || [];
+  
+  if (indices.includes('Nifty 50') || indices.includes('Nifty Next 50')) {
+    marketCap = 'Large Cap';
+  } else if (indices.includes('Nifty Midcap 150')) {
+    marketCap = 'Mid Cap';
+  } else if (indices.includes('Nifty Smallcap 250')) {
+    marketCap = 'Small Cap';
+  } else if (indices.includes('Nifty 500')) {
+    marketCap = 'Small Cap'; // Fallback for Nifty 500
+  } else {
+    // Fallback for non-index stocks using turnover proxy
+    if (turnoverCr > 150) {
+        marketCap = 'Large Cap';
+    } else if (turnoverCr > 25) {
+        marketCap = 'Mid Cap';
+    } else if (turnoverCr > 2) {
+        marketCap = 'Small Cap';
+    }
   }
 
   return {
@@ -230,6 +243,7 @@ const analyzeStock = (stock, marketData, benchmarkReturns) => {
     aboveSma50,
     goldenAligned,
     currentAtr,
+    idealEntry,
     stopLoss,
     algoTarget,
     algoUpside,
@@ -398,7 +412,7 @@ async function generateData() {
     const batchPromises = batch.map(async (stock) => {
       const data = await fetchStockData(stock.id);
       if (data) {
-        return analyzeStock(stock, data, benchmarkReturns);
+        return analyzeStock(stock, data, benchmarkReturns, indexDict);
       }
       return null;
     });
