@@ -312,10 +312,19 @@ const fetchLatestBhavcopy = async () => {
                results.data.forEach(row => {
                  let sym = row['SYMBOL'];
                  let series = row['SERIES'] || '';
-                 if (sym && series === 'EQ') {
+                 if (sym && ['EQ', 'BE', 'SM', 'ST', 'BZ'].includes(series)) {
                    sym = sym.toUpperCase() + '.NS';
+                   let delivery = row['DELIV_PER'];
+                   
+                   // BE and BZ series are Trade-to-Trade (intraday banned) = 100% Delivery
+                   if (['BE', 'BZ'].includes(series) && (!delivery || delivery === '-')) {
+                     delivery = 100;
+                   } else {
+                     delivery = parseFloat(delivery || 0);
+                   }
+
                    dict[sym] = {
-                     deliveryPct: parseFloat(row['DELIV_PER'] || 0),
+                     deliveryPct: isNaN(delivery) ? 0 : delivery,
                      vwap: parseFloat(row['AVG_PRICE'] || 0)
                    };
                  }
