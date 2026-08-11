@@ -135,7 +135,51 @@ const StockCard = ({ stock }) => {
           </div>
         </div>
 
-        {/* SECTION 2: Technicals & MAs */}
+        {/* SECTION 2: Momentum & Trend */}
+        <div>
+          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Momentum & Trend</h4>
+          <div className="metrics-grid">
+            <div className="metric">
+              <span className="metric-label">1W Return</span>
+              <span className="metric-value" style={{ color: stock.change1w > 0 ? 'var(--success)' : stock.change1w < 0 ? 'var(--danger)' : 'inherit' }}>
+                {stock.change1w > 0 ? '+' : ''}{stock.change1w?.toFixed(1) || '0.0'}%
+              </span>
+            </div>
+            
+            <div className="metric">
+              <span className="metric-label">1M Return</span>
+              <span className="metric-value" style={{ color: stock.change1m > 0 ? 'var(--success)' : stock.change1m < 0 ? 'var(--danger)' : 'inherit' }}>
+                {stock.change1m > 0 ? '+' : ''}{stock.change1m?.toFixed(1) || '0.0'}%
+              </span>
+            </div>
+            
+            <div className="metric">
+              <span className="metric-label">Sector Outperformance</span>
+              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+                <span style={{ color: stock.rsSector > 0 ? 'var(--success)' : stock.rsSector < 0 ? 'var(--danger)' : 'inherit' }}>
+                  {stock.rsSector > 0 ? '+' : ''}{stock.rsSector?.toFixed(1) || '0.0'}%
+                </span>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>vs Sector</span>
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Daily Trend</span>
+              <span className="metric-value" style={{ color: stock.consecutiveUp > 0 ? 'var(--success)' : stock.consecutiveDown > 0 ? 'var(--danger)' : 'inherit' }}>
+                {stock.consecutiveUp > 0 ? `+${stock.consecutiveUp} Days` : stock.consecutiveDown > 0 ? `-${stock.consecutiveDown} Days` : 'Flat'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">MACD (Line | Sig)</span>
+              <span className="metric-value">
+                {stock.macdLine?.toFixed(2)} | {stock.macdSignal?.toFixed(2)}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 3: Technicals & MAs */}
         <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Technicals & MAs</h4>
           <div className="metrics-grid">
@@ -187,50 +231,6 @@ const StockCard = ({ stock }) => {
                     ({stock.distSma200 > 0 ? '+' : ''}{stock.distSma200.toFixed(1)}%)
                   </span>
                 )}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 3: Momentum & Trend */}
-        <div>
-          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Momentum & Trend</h4>
-          <div className="metrics-grid">
-            <div className="metric">
-              <span className="metric-label">1W Return</span>
-              <span className="metric-value" style={{ color: stock.change1w > 0 ? 'var(--success)' : stock.change1w < 0 ? 'var(--danger)' : 'inherit' }}>
-                {stock.change1w > 0 ? '+' : ''}{stock.change1w?.toFixed(1) || '0.0'}%
-              </span>
-            </div>
-            
-            <div className="metric">
-              <span className="metric-label">1M Return</span>
-              <span className="metric-value" style={{ color: stock.change1m > 0 ? 'var(--success)' : stock.change1m < 0 ? 'var(--danger)' : 'inherit' }}>
-                {stock.change1m > 0 ? '+' : ''}{stock.change1m?.toFixed(1) || '0.0'}%
-              </span>
-            </div>
-            
-            <div className="metric">
-              <span className="metric-label">Sector Outperformance</span>
-              <span className="metric-value" style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-                <span style={{ color: stock.rsSector > 0 ? 'var(--success)' : stock.rsSector < 0 ? 'var(--danger)' : 'inherit' }}>
-                  {stock.rsSector > 0 ? '+' : ''}{stock.rsSector?.toFixed(1) || '0.0'}%
-                </span>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>vs Sector</span>
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Daily Trend</span>
-              <span className="metric-value" style={{ color: stock.consecutiveUp > 0 ? 'var(--success)' : stock.consecutiveDown > 0 ? 'var(--danger)' : 'inherit' }}>
-                {stock.consecutiveUp > 0 ? `+${stock.consecutiveUp} Days` : stock.consecutiveDown > 0 ? `-${stock.consecutiveDown} Days` : 'Flat'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">MACD (Line | Sig)</span>
-              <span className="metric-value">
-                {stock.macdLine?.toFixed(2)} | {stock.macdSignal?.toFixed(2)}
               </span>
             </div>
           </div>
