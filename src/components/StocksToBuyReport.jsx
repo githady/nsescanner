@@ -161,7 +161,12 @@ const StocksToBuyReport = () => {
     // If NO perfect setups are found, fallback to the top 10 highest RS Rating Nifty 500 stocks
     if (topPicks.length === 0) {
       const fillers = stocks
-        .filter(s => s.indices && s.indices.includes('Nifty 500'))
+        .filter(s => 
+          s.indices && s.indices.includes('Nifty 500') &&
+          s.aboveSma50 && 
+          s.turnoverCr > 10 && 
+          s.rsi < 75
+        )
         .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0))
         .map(s => ({ ...s, isPerfectSetup: false }));
       topPicks = fillers.slice(0, 10);
