@@ -412,7 +412,7 @@ const StocksToBuyReport = () => {
                       <div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{pick.id}</div>
-                          {pick.isPerfectSetup && (
+                          {pick.isPerfectSetup && aiRecommendation.topPicks.some(p => !p.isPerfectSetup) && (
                             <div style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--success)', fontSize: '0.65rem', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 700, border: '1px solid rgba(16, 185, 129, 0.3)' }}>
                               PERFECT SETUP
                             </div>
