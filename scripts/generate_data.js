@@ -115,9 +115,9 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavc
   const goldenAligned = currentSma200 > 0 && currentPrice > currentSma50 && currentSma50 > currentSma200;
   
   const idealEntry = (aboveSma50 && currentSma50 > 0) ? currentSma50 : currentPrice;
-  const stopLoss = idealEntry - (1.5 * currentAtr);
-  const algoTarget = idealEntry + (3.0 * currentAtr);
-  const algoUpside = idealEntry > 0 ? ((algoTarget - idealEntry) / idealEntry) * 100 : 0;
+  const stopLoss = currentPrice - (1.5 * currentAtr);
+  const algoTarget = currentPrice + (3.0 * currentAtr);
+  const algoUpside = currentPrice > 0 ? ((algoTarget - currentPrice) / currentPrice) * 100 : 0;
   
   const currentVol = vols[vols.length - 1];
   const avgVol = volSma20.length > 0 ? volSma20[volSma20.length - 1] : 1;
