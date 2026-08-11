@@ -292,7 +292,9 @@ const analyzeStock = (stock, marketData, benchmarkReturns, indexDict = {}, bhavc
     trailingPE: fundamentals.trailingPE,
     forwardPE: fundamentals.forwardPE,
     priceToBook: fundamentals.priceToBook,
-    marketCapExact: fundamentals.marketCapExact
+    marketCapExact: fundamentals.marketCapExact,
+    epsGrowth: fundamentals.epsGrowth,
+    dividendYield: fundamentals.dividendYield
   };
 };
 
@@ -499,11 +501,18 @@ async function generateData() {
       const data = await fetchStockData(stock.id);
       if (data) {
         const quote = quotes.find(q => q.symbol === stock.id) || {};
+        let epsGrowth = 0;
+        if (quote.epsTrailingTwelveMonths && quote.epsForward) {
+           epsGrowth = ((quote.epsForward - quote.epsTrailingTwelveMonths) / Math.abs(quote.epsTrailingTwelveMonths)) * 100;
+        }
+
         const fundamentals = {
           trailingPE: quote.trailingPE,
           forwardPE: quote.forwardPE,
           priceToBook: quote.priceToBook,
-          marketCapExact: quote.marketCap
+          marketCapExact: quote.marketCap,
+          epsGrowth: epsGrowth,
+          dividendYield: quote.dividendYield
         };
         return analyzeStock(stock, data, benchmarkReturns, indexDict, bhavcopyDict, fundamentals);
       }

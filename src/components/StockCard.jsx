@@ -264,42 +264,10 @@ const StockCard = ({ stock }) => {
           </div>
         </div>
 
-        {/* SECTION 4: Fundamentals & Valuation */}
-        <div>
-          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fundamentals & Valuation</h4>
-          <div className="metrics-grid">
-            <div className="metric">
-              <span className="metric-label">Trailing P/E</span>
-              <span className="metric-value">
-                {stock.trailingPE ? stock.trailingPE.toFixed(1) : 'N/A'}
-              </span>
-            </div>
 
-            <div className="metric">
-              <span className="metric-label">Forward P/E</span>
-              <span className="metric-value">
-                {stock.forwardPE ? stock.forwardPE.toFixed(1) : 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">P/B Ratio</span>
-              <span className="metric-value">
-                {stock.priceToBook ? stock.priceToBook.toFixed(2) : 'N/A'}
-              </span>
-            </div>
-
-            <div className="metric">
-              <span className="metric-label">Market Cap</span>
-              <span className="metric-value">
-                {stock.marketCapExact ? `₹${(stock.marketCapExact / 10000000).toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr` : 'N/A'}
-              </span>
-            </div>
-          </div>
-        </div>
 
         {/* SECTION 4: Volatility, Risk, & Liquidity */}
-        <div style={{ gridColumn: '1 / -1' }}>
+        <div>
           <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Volatility, Risk & Liquidity</h4>
           <div className="metrics-grid">
             <div className="metric">
@@ -347,6 +315,54 @@ const StockCard = ({ stock }) => {
               <span className="metric-value">
                 <BarChart2 size={14} color="var(--primary)" />
                 {formatVolume(stock.volume)}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* SECTION 5: Fundamentals & Valuation */}
+        <div>
+          <h4 style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', marginTop: '0', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Fundamentals & Valuation</h4>
+          <div className="metrics-grid">
+            <div className="metric">
+              <span className="metric-label">Proj. EPS Growth</span>
+              <span className="metric-value" style={{ color: stock.epsGrowth > 15 ? 'var(--success)' : stock.epsGrowth < 0 ? 'var(--danger)' : 'inherit' }}>
+                {stock.epsGrowth ? `${stock.epsGrowth > 0 ? '+' : ''}${stock.epsGrowth.toFixed(1)}%` : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Trailing P/E</span>
+              <span className="metric-value">
+                {stock.trailingPE ? stock.trailingPE.toFixed(1) : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Forward P/E</span>
+              <span className="metric-value">
+                {stock.forwardPE ? stock.forwardPE.toFixed(1) : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">P/B Ratio</span>
+              <span className="metric-value">
+                {stock.priceToBook ? stock.priceToBook.toFixed(2) : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Dividend Yield</span>
+              <span className="metric-value" style={{ color: stock.dividendYield > 0.02 ? 'var(--success)' : 'inherit' }}>
+                {stock.dividendYield ? `${(stock.dividendYield * 100).toFixed(2)}%` : 'N/A'}
+              </span>
+            </div>
+
+            <div className="metric">
+              <span className="metric-label">Market Cap</span>
+              <span className="metric-value">
+                {stock.marketCapExact ? `₹${(stock.marketCapExact / 10000000).toLocaleString('en-IN', { maximumFractionDigits: 0 })} Cr` : 'N/A'}
               </span>
             </div>
           </div>
