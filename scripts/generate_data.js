@@ -316,9 +316,10 @@ const fetchLatestBhavcopy = async () => {
                    sym = sym.toUpperCase() + '.NS';
                    let delivery = row['DELIV_PER'];
                    
-                   // BE and BZ series are Trade-to-Trade (intraday banned) = 100% Delivery
+                   // BE and BZ series are Trade-to-Trade. The user prefers to keep them at 0%
+                   // so they don't pollute the "High Delivery" filter on the dashboard.
                    if (['BE', 'BZ'].includes(series) && (!delivery || delivery === '-')) {
-                     delivery = 100;
+                     delivery = 0;
                    } else {
                      delivery = parseFloat(delivery || 0);
                    }

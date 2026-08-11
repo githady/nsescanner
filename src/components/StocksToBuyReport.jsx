@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import StockCard from './StockCard';
 import { RefreshCw, Play, TrendingUp, TrendingDown, AlertCircle, Search, ArrowUpDown, X, Zap, SlidersHorizontal, Award, Sparkles } from 'lucide-react';
 import { fetchMarketData } from '../utils/scanner';
-import ChatBox from './ChatBox';
 
 const StocksToBuyReport = () => {
   const [stocks, setStocks] = useState([]);
@@ -637,10 +636,6 @@ const StocksToBuyReport = () => {
             <StockCard stock={selectedStock} />
           </div>
         </div>
-      )}
-      {/* ChatBox Floating Assistant */}
-      {!scanning && stocks.length > 0 && (
-        <ChatBox stocks={stocks} onSelectStock={setSelectedStock} />
       )}
     </div>
   );
