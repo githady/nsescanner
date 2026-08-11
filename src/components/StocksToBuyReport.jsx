@@ -134,15 +134,13 @@ const StocksToBuyReport = () => {
     // already sorted by avgChange in availableSectors useMemo
     const topSector = validSectors.length > 0 ? validSectors[0] : null;
 
-    // Best Stock (Top Sector, Nifty 500, Uptrend, Momentum, Inst Buying, Accumulation)
+    // Best Stock (Ultimate Formula: Nifty 500, Uptrend, Momentum, Inst Buying, Breakout)
     let candidates = stocks.filter(s => {
-      if (!topSector) return false;
       return s.indices && s.indices.includes('Nifty 500') &&
-             s.sector === topSector.name &&
              s.aboveSma50 && 
-             s.bullishMacd && 
+             s.rsi > 60 && 
              s.institutionalBuying && 
-             s.deliveryPct > 60;
+             s.distanceToHigh <= 10;
     });
     
     // Sort by RS Rating first, then Algo Upside
