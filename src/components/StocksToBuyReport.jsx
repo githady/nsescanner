@@ -227,7 +227,7 @@ const StocksToBuyReport = () => {
       filtered = filtered.filter(s => s.isAccumulating);
     }
     if (mustHaveLowDrawdown) {
-      filtered = filtered.filter(s => s.maxDrawdown <= 15);
+      filtered = filtered.filter(s => s.maxDrawdown <= 25);
     }
     
     // 2. Sector Filter
@@ -571,7 +571,7 @@ const StocksToBuyReport = () => {
                 </label>
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveLowDrawdown ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveLowDrawdown} onChange={(e) => setMustHaveLowDrawdown(e.target.checked)} style={{ display: 'none' }} />
-                  &lt;15% Drawdown
+                  &lt;25% Drawdown
                 </label>
               </div>
             </div>
