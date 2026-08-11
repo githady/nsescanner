@@ -12,6 +12,44 @@ const StocksToBuyReport = () => {
   
   // Dashboard Filters State
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Smart Search Parser
+  const parseSmartSearch = (query) => {
+    const regex = /(price|rsi|delivery|volume|rs|macd|stoch|beta|atr)\s*(>|<|>=|<=|=|==)\s*([0-9.]+)/ig;
+    let match;
+    const conditions = [];
+    while ((match = regex.exec(query)) !== null) {
+      conditions.push({ metric: match[1].toLowerCase(), operator: match[2], value: parseFloat(match[3]) });
+    }
+    const text = query.replace(regex, '').replace(/and/ig, '').replace(/\s+/g, ' ').trim().toLowerCase();
+    return { conditions, text };
+  };
+
+  const evaluateCondition = (stock, cond) => {
+    let stockVal = null;
+    switch(cond.metric) {
+      case 'price': stockVal = stock.price; break;
+      case 'rsi': stockVal = stock.rsi; break;
+      case 'delivery': stockVal = stock.deliveryPct; break;
+      case 'volume': stockVal = stock.volume; break;
+      case 'rs': stockVal = stock.rsSector; break;
+      case 'macd': stockVal = stock.macdLine; break;
+      case 'stoch': stockVal = stock.stochK; break;
+      case 'beta': stockVal = stock.beta; break;
+      case 'atr': stockVal = stock.currentAtr; break;
+    }
+    if (stockVal === null || stockVal === undefined) return false;
+    
+    switch(cond.operator) {
+      case '>': return stockVal > cond.value;
+      case '>=': return stockVal >= cond.value;
+      case '<': return stockVal < cond.value;
+      case '<=': return stockVal <= cond.value;
+      case '=':
+      case '==': return Math.abs(stockVal - cond.value) < 0.01;
+      default: return false;
+    }
+  };
   const [mustBeAboveSma50, setMustBeAboveSma50] = useState(false);
   const [mustBeGoldenCross, setMustBeGoldenCross] = useState(false);
   const [mustHaveBullishMacd, setMustHaveBullishMacd] = useState(false);
@@ -130,14 +168,26 @@ const StocksToBuyReport = () => {
   const filteredAndSortedStocks = useMemo(() => {
     let filtered = [...stocks];
 
-    // 1. Text Search
+    // 1. Text Search & Smart Search
     if (searchQuery.trim() !== '') {
-      const q = searchQuery.toLowerCase();
-      filtered = filtered.filter(s => 
-        s.id.toLowerCase().includes(q) || 
-        s.name.toLowerCase().includes(q) ||
-        (s.sector && s.sector.toLowerCase().includes(q))
-      );
+      const { conditions, text } = parseSmartSearch(searchQuery);
+      
+      filtered = filtered.filter(s => {
+        // Evaluate all smart conditions
+        for (let cond of conditions) {
+          if (!evaluateCondition(s, cond)) return false;
+        }
+        
+        // Evaluate remaining text search
+        if (text) {
+          const matchesText = s.id.toLowerCase().includes(text) || 
+                              s.name.toLowerCase().includes(text) ||
+                              (s.sector && s.sector.toLowerCase().includes(text));
+          if (!matchesText) return false;
+        }
+        
+        return true;
+      });
     }
     
     // 2. Technical Signals
@@ -396,7 +446,7 @@ const StocksToBuyReport = () => {
                 <Search size={16} color="var(--text-secondary)" />
                 <input 
                   type="text" 
-                  placeholder="Symbol, name..." 
+                  placeholder="Search 'RELIANCE' or 'rsi < 40 and delivery > 60'..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   style={{ background: 'transparent', border: 'none', color: '#fff', padding: '10px 8px', outline: 'none', width: '100%', fontSize: '0.95rem' }}
