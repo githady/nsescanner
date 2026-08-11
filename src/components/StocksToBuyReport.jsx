@@ -60,6 +60,7 @@ const StocksToBuyReport = () => {
   const [mustHaveDowntrend, setMustHaveDowntrend] = useState(false);
   const [mustHaveBbSqueeze, setMustHaveBbSqueeze] = useState(false);
   const [mustHaveObvAccumulation, setMustHaveObvAccumulation] = useState(false);
+  const [mustHaveLowDrawdown, setMustHaveLowDrawdown] = useState(false);
   const [selectedSector, setSelectedSector] = useState('all');
   const [selectedMarketCap, setSelectedMarketCap] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState('all');
@@ -225,6 +226,9 @@ const StocksToBuyReport = () => {
     if (mustHaveObvAccumulation) {
       filtered = filtered.filter(s => s.isAccumulating);
     }
+    if (mustHaveLowDrawdown) {
+      filtered = filtered.filter(s => s.maxDrawdown <= 15);
+    }
     
     // 2. Sector Filter
     if (selectedSector !== 'all') {
@@ -259,7 +263,7 @@ const StocksToBuyReport = () => {
     });
 
     return filtered;
-  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
+  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, mustHaveLowDrawdown, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
@@ -564,6 +568,10 @@ const StocksToBuyReport = () => {
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveObvAccumulation ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveObvAccumulation} onChange={(e) => setMustHaveObvAccumulation(e.target.checked)} style={{ display: 'none' }} />
                   OBV Accum.
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveLowDrawdown ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveLowDrawdown} onChange={(e) => setMustHaveLowDrawdown(e.target.checked)} style={{ display: 'none' }} />
+                  &lt;15% Drawdown
                 </label>
               </div>
             </div>
