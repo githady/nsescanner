@@ -411,16 +411,23 @@ const StocksToBuyReport = () => {
                     </div>
                     
                     <div style={{ height: '1px', width: '100%', background: 'var(--border)' }}></div>
-                    
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.25rem' }}>
+                      <div>
+                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Price</div>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>₹{pick.price?.toFixed(2)}</div>
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Stop Loss</div>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--danger)' }}>₹{pick.stopLoss?.toFixed(2)}</div>
+                      </div>
                       <div>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</div>
-                        <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--success)' }}>
-                          ₹{pick.algoTarget?.toFixed(2)} 
-                        </div>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--success)' }}>₹{pick.algoTarget?.toFixed(2)}</div>
                       </div>
-                      <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--success)' }}>
-                        +{pick.algoUpside?.toFixed(1)}%
+                      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
+                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--success)', background: 'rgba(16, 185, 129, 0.1)', padding: '0.15rem 0.4rem', borderRadius: '4px' }}>
+                          +{pick.algoUpside?.toFixed(1)}%
+                        </div>
                       </div>
                     </div>
                   </div>
