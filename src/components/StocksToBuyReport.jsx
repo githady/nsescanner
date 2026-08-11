@@ -350,6 +350,35 @@ const StocksToBuyReport = () => {
         </div>
       ) : (
         <>
+          {/* Top-Level Full Width Search Bar */}
+          <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div style={{ 
+              display: 'flex', alignItems: 'center', background: 'var(--surface)', 
+              border: '1px solid var(--primary)', borderRadius: '12px', padding: '0.5rem 1rem',
+              boxShadow: '0 4px 12px rgba(59, 130, 246, 0.15)'
+            }}>
+              <Search size={20} color="var(--primary)" />
+              <input 
+                type="text" 
+                placeholder="Global Search: e.g., 'RELIANCE' or 'rsi < 40 and delivery > 60 and volume > 1000000'" 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{ 
+                  background: 'transparent', border: 'none', color: '#fff', 
+                  padding: '12px 12px', outline: 'none', width: '100%', fontSize: '1.05rem' 
+                }}
+              />
+              {searchQuery && (
+                <button 
+                  onClick={() => setSearchQuery('')}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}
+                >
+                  <X size={18} />
+                </button>
+              )}
+            </div>
+          </div>
+
           {aiRecommendation && aiRecommendation.topPicks && aiRecommendation.topPicks.length > 0 && (
             <div className="ai-banner fade-in" style={{
               background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
@@ -475,21 +504,6 @@ const StocksToBuyReport = () => {
               <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>Filters</h3>
             </div>
 
-            {/* Search Bar */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <label style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Search</label>
-              <div style={{ display: 'flex', alignItems: 'center', background: 'var(--background)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0 12px' }}>
-                <Search size={16} color="var(--text-secondary)" />
-                <input 
-                  type="text" 
-                  placeholder="Search 'RELIANCE' or 'rsi < 40 and delivery > 60'..." 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  style={{ background: 'transparent', border: 'none', color: '#fff', padding: '10px 8px', outline: 'none', width: '100%', fontSize: '0.95rem' }}
-                />
-              </div>
-            </div>
-
             {/* Dropdowns */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -583,6 +597,24 @@ const StocksToBuyReport = () => {
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveLowDrawdown ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveLowDrawdown} onChange={(e) => setMustHaveLowDrawdown(e.target.checked)} style={{ display: 'none' }} />
                   &lt;25% Drawdown
+                </label>
+              </div>
+            </div>
+
+            <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
+              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '0.75rem' }}>Fundamentals & New Logic</label>
+              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveHighEps ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveHighEps} onChange={(e) => setMustHaveHighEps(e.target.checked)} style={{ display: 'none' }} />
+                  EPS &gt;15%
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveDividend ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveDividend} onChange={(e) => setMustHaveDividend(e.target.checked)} style={{ display: 'none' }} />
+                  Div Yield &gt;2%
+                </label>
+                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveVolumeSpike ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
+                  <input type="checkbox" checked={mustHaveVolumeSpike} onChange={(e) => setMustHaveVolumeSpike(e.target.checked)} style={{ display: 'none' }} />
+                  Vol Spike &gt;1.5x
                 </label>
               </div>
             </div>
