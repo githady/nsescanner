@@ -240,6 +240,15 @@ const StocksToBuyReport = () => {
     if (mustHaveLowDrawdown) {
       filtered = filtered.filter(s => s.maxDrawdown <= 25);
     }
+    if (mustHaveHighEps) {
+      filtered = filtered.filter(s => s.epsGrowth >= 15);
+    }
+    if (mustHaveDividend) {
+      filtered = filtered.filter(s => s.dividendYield >= 2);
+    }
+    if (mustHaveVolumeSpike) {
+      filtered = filtered.filter(s => s.volRatio >= 1.5);
+    }
     
     // 2. Sector Filter
     if (selectedSector !== 'all') {
@@ -598,12 +607,6 @@ const StocksToBuyReport = () => {
                   <input type="checkbox" checked={mustHaveLowDrawdown} onChange={(e) => setMustHaveLowDrawdown(e.target.checked)} style={{ display: 'none' }} />
                   &lt;25% Drawdown
                 </label>
-              </div>
-            </div>
-
-            <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '0.75rem' }}>Fundamentals & New Logic</label>
-              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '0.4rem' }}>
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveHighEps ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveHighEps} onChange={(e) => setMustHaveHighEps(e.target.checked)} style={{ display: 'none' }} />
                   EPS &gt;15%
