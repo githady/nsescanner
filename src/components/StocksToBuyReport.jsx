@@ -55,7 +55,6 @@ const StocksToBuyReport = () => {
   const [mustBeAboveSma50, setMustBeAboveSma50] = useState(false);
   const [mustBeGoldenCross, setMustBeGoldenCross] = useState(false);
   const [mustHaveBullishMacd, setMustHaveBullishMacd] = useState(false);
-  const [mustHaveInstBuying, setMustHaveInstBuying] = useState(false);
   const [mustHaveHighDelivery, setMustHaveHighDelivery] = useState(false);
   const [mustBeNearBreakout, setMustBeNearBreakout] = useState(false);
   const [mustBeNearIdealEntry, setMustBeNearIdealEntry] = useState(false);
@@ -216,9 +215,6 @@ const StocksToBuyReport = () => {
     if (mustHaveBullishMacd) {
       filtered = filtered.filter(s => s.bullishMacd);
     }
-    if (mustHaveInstBuying) {
-      filtered = filtered.filter(s => s.institutionalBuying);
-    }
     if (mustHaveHighDelivery) {
       filtered = filtered.filter(s => s.deliveryPct > 60);
     }
@@ -286,7 +282,7 @@ const StocksToBuyReport = () => {
     });
 
     return filtered;
-  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveInstBuying, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, mustHaveLowDrawdown, mustHaveHighEps, mustHaveDividend, mustHaveVolumeSpike, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
+  }, [stocks, searchQuery, mustBeAboveSma50, mustBeGoldenCross, mustHaveBullishMacd, mustHaveHighDelivery, mustBeNearBreakout, mustBeNearIdealEntry, mustHaveUptrend, mustHaveDowntrend, mustHaveBbSqueeze, mustHaveObvAccumulation, mustHaveLowDrawdown, mustHaveHighEps, mustHaveDividend, mustHaveVolumeSpike, selectedSector, selectedMarketCap, selectedIndex, sortConfig]);
 
   const handleSort = (key) => {
     setSortConfig(prev => ({
@@ -573,10 +569,6 @@ const StocksToBuyReport = () => {
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveBullishMacd ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveBullishMacd} onChange={(e) => setMustHaveBullishMacd(e.target.checked)} style={{ display: 'none' }} />
                   MACD
-                </label>
-                <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveInstBuying ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
-                  <input type="checkbox" checked={mustHaveInstBuying} onChange={(e) => setMustHaveInstBuying(e.target.checked)} style={{ display: 'none' }} />
-                  Inst. Buying
                 </label>
                 <label className="checkbox-label" style={{ margin: 0, padding: '0.25rem 0.6rem', background: mustHaveHighDelivery ? 'var(--primary-glow)' : 'var(--background)', border: '1px solid var(--border)', borderRadius: '999px', cursor: 'pointer', transition: 'all 0.2s', fontSize: '0.75rem', fontWeight: 500 }}>
                   <input type="checkbox" checked={mustHaveHighDelivery} onChange={(e) => setMustHaveHighDelivery(e.target.checked)} style={{ display: 'none' }} />
