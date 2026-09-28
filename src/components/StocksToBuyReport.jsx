@@ -132,53 +132,7 @@ const StocksToBuyReport = () => {
     return [{ name: 'all', avgChange: 0 }, ...sorted];
   }, [stocks]);
 
-  const aiRecommendation = useMemo(() => {
-    if (!stocks || stocks.length === 0 || !availableSectors) return null;
-
-    // Best Sector
-    const validSectors = availableSectors.filter(s => s.name !== 'all');
-    // already sorted by avgChange in availableSectors useMemo
-    const topSector = validSectors.length > 0 ? validSectors[0] : null;
-
-    // Best Stock (Ultimate 5-Layer Formula: Nifty 500, Momentum, Technicals, Volatility, Fundamentals, Liquidity)
-    let candidates = stocks.filter(s => {
-      if (!s.indices || !s.indices.includes('Nifty 500')) return false;
-      
-      const passMomentum = s.rsRating > 80 && s.aboveSma50 && (s.currentSma50 > s.currentSma200);
-      const passTechnicals = s.rsi >= 45 && s.rsi <= 70 && s.bullishMacd;
-      const passVolatility = s.maxDrawdown < 25 && (s.isSqueezing || s.volRatio > 1.5);
-      const passFundamentals = s.epsGrowth > 15 && s.trailingPE > 0;
-      const passLiquidity = s.turnoverCr > 15 && s.deliveryPct > 40;
-
-      return passMomentum && passTechnicals && passVolatility && passFundamentals && passLiquidity;
-    });
-    
-    // Sort by RS Rating first, then Algo Upside
-    candidates.sort((a, b) => {
-      const rsA = a.rsRating || 0;
-      const rsB = b.rsRating || 0;
-      if (rsB !== rsA) return rsB - rsA;
-      return (b.algoUpside || 0) - (a.algoUpside || 0);
-    });
-
-    let topPicks = candidates.map(s => ({ ...s, isPerfectSetup: true }));
-    
-    // If NO perfect setups are found, fallback to the top 10 highest RS Rating Nifty 500 stocks
-    if (topPicks.length === 0) {
-      const fillers = stocks
-        .filter(s => 
-          s.indices && s.indices.includes('Nifty 500') &&
-          s.aboveSma50 && 
-          s.turnoverCr > 10 && 
-          s.rsi < 75
-        )
-        .sort((a, b) => (b.rsRating || 0) - (a.rsRating || 0))
-        .map(s => ({ ...s, isPerfectSetup: false }));
-      topPicks = fillers.slice(0, 10);
-    }
-
-    return { topSector, topPicks };
-  }, [stocks, availableSectors]);
+    const marketBreadth = useMemo(() => { if (!stocks || stocks.length === 0) return null; let advancing = 0; let declining = 0; let above50Sma = 0; let above200Sma = 0; stocks.forEach(s => { if (s.change24h > 0) advancing++; else if (s.change24h < 0) declining++; if (s.aboveSma50) above50Sma++; if (s.price > s.currentSma200) above200Sma++; }); const total = stocks.length; return { total, advancing, declining, advPct: ((advancing / total) * 100).toFixed(1), above50Sma, above50Pct: ((above50Sma / total) * 100).toFixed(1), above200Sma, above200Pct: ((above200Sma / total) * 100).toFixed(1) }; }, [stocks]);
 
   const filteredAndSortedStocks = useMemo(() => {
     let filtered = [...stocks];
