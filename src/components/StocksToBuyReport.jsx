@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import StockCard from './StockCard';
-import { RefreshCw, Play, TrendingUp, TrendingDown, AlertCircle, Search, ArrowUpDown, X, Zap, SlidersHorizontal, Award, Sparkles } from 'lucide-react';
+import { RefreshCw, Play, TrendingUp, TrendingDown, AlertCircle, Search, ArrowUpDown, X, Zap, SlidersHorizontal, Award, Sparkles, BarChart2 } from 'lucide-react';
 import { fetchMarketData } from '../utils/scanner';
 
 const StocksToBuyReport = () => {
