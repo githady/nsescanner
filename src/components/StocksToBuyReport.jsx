@@ -387,21 +387,25 @@ const StocksToBuyReport = () => {
             </div>
           </div>
 
-          {aiRecommendation && aiRecommendation.topPicks && aiRecommendation.topPicks.length > 0 && (
-            <div className="ai-banner fade-in" style={{
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
-              border: '1px solid rgba(139, 92, 246, 0.2)',
+          
+          {marketBreadth && (
+            <div className="market-breadth-banner fade-in" style={{
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
               borderRadius: '16px',
               padding: '1.5rem',
               marginBottom: '2rem',
               display: 'flex',
-              flexDirection: 'column',
-              gap: '1.5rem',
-              boxShadow: '0 4px 20px -5px rgba(139, 92, 246, 0.15)'
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: '2rem',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
             }}>
               <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                 <div style={{
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                  background: 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
                   width: '50px',
                   height: '50px',
                   borderRadius: '12px',
@@ -409,99 +413,54 @@ const StocksToBuyReport = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  boxShadow: '0 4px 12px rgba(139, 92, 246, 0.4)'
+                  boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)'
                 }}>
-                  <Sparkles size={24} color="#fff" />
+                  <BarChart2 size={24} color="#fff" />
                 </div>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
-                    <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#fff' }}>
-                      {aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length > 0 
-                        ? `AI Perfect Setups (${aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length})`
-                        : 'AI Momentum Picks'}
-                    </h2>
-                    <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#e2e8f0', border: '1px solid rgba(255,255,255,0.2)' }}>
-                      Top Sector: {aiRecommendation.topSector?.name || 'N/A'}
-                    </span>
-                  </div>
+                  <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '0.25rem' }}>
+                    Market Breadth
+                  </h2>
                   <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                    {aiRecommendation.topPicks.filter(p => p.isPerfectSetup).length > 0 
-                      ? 'These stocks possess the highest mathematical probability setups today based on strict momentum and institutional volume criteria.'
-                      : 'No perfect setups found today. Showing the highest Relative Strength momentum stocks instead.'}
+                    Overall market trend based on {marketBreadth.total} scanned stocks.
                   </p>
                 </div>
               </div>
-              
-              {/* Horizontal Scroll Container */}
-              <div style={{
-                display: 'flex',
-                gap: '1rem',
-                overflowX: 'auto',
-                paddingBottom: '0.5rem',
-                scrollbarWidth: 'thin',
-                scrollbarColor: 'var(--text-tertiary) transparent'
-              }}>
-                {aiRecommendation.topPicks.map((pick, index) => (
-                  <div 
-                    key={pick.id}
-                    style={{
-                      background: 'rgba(21, 26, 37, 0.8)',
-                      border: '1px solid var(--border)',
-                      borderRadius: '12px',
-                      padding: '1rem',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.75rem',
-                      cursor: 'pointer',
-                      minWidth: '220px',
-                      transition: 'transform 0.2s, borderColor 0.2s'
-                    }}
-                    onClick={() => setSelectedStock(pick)}
-                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = 'var(--primary)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border)'; }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{pick.id}</div>
-                          {pick.isPerfectSetup && aiRecommendation.topPicks.some(p => !p.isPerfectSetup) && (
-                            <div style={{ background: 'rgba(16, 185, 129, 0.2)', color: 'var(--success)', fontSize: '0.65rem', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 700, border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-                              PERFECT SETUP
-                            </div>
-                          )}
-                        </div>
-                        <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '140px' }}>{pick.name}</div>
-                      </div>
-                      <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '0.25rem 0.5rem', borderRadius: '8px', fontSize: '0.75rem', fontWeight: 600, color: 'var(--primary)' }}>
-                        #{index + 1}
-                      </div>
-                    </div>
-                    
-                    <div style={{ height: '1px', width: '100%', background: 'var(--border)' }}></div>
-                                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.25rem' }}>
-                      <div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Price</div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>₹{pick.price?.toFixed(2)}</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Stop Loss</div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--danger)' }}>₹{pick.stopLoss?.toFixed(2)}</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Target</div>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--success)' }}>₹{pick.algoTarget?.toFixed(2)}</div>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--success)', background: 'rgba(16, 185, 129, 0.1)', padding: '0.15rem 0.4rem', borderRadius: '4px' }}>
-                          +{pick.algoUpside?.toFixed(1)}%
-                        </div>
-                      </div>
+
+              <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Advancing / Declining</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--success)' }}>{marketBreadth.advPct}%</div>
+                    <div style={{ width: '100px', height: '6px', background: 'var(--danger)', borderRadius: '3px', overflow: 'hidden', display: 'flex' }}>
+                      <div style={{ width: `${marketBreadth.advPct}%`, height: '100%', background: 'var(--success)' }}></div>
                     </div>
                   </div>
-                ))}
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Above 50 SMA</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>{marketBreadth.above50Pct}%</div>
+                    <div style={{ width: '100px', height: '6px', background: 'var(--background)', borderRadius: '3px', overflow: 'hidden', display: 'flex' }}>
+                      <div style={{ width: `${marketBreadth.above50Pct}%`, height: '100%', background: 'var(--primary)' }}></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Top Sector Today</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff' }}>
+                    {availableSectors.filter(s => s.name !== 'all')[0]?.name || 'N/A'}
+                    <span style={{ fontSize: '0.85rem', color: 'var(--success)', marginLeft: '0.5rem' }}>
+                      +{availableSectors.filter(s => s.name !== 'all')[0]?.avgChange?.toFixed(1)}%
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           )}
+
 
           <div className="dashboard-layout" style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', width: '100%' }}>
           
