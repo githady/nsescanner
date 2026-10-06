@@ -2,8 +2,8 @@ name: Daily NSE Scan
 
 on:
   schedule:
-    # 15:30 UTC is 9:00 PM IST (Ensures NSE Bhavcopy & Yahoo EOD data are fully published)
-    - cron: '30 15 * * 1-5'
+    # 15:42 UTC is 9:12 PM IST (Ensures NSE/Yahoo data is fully published and avoids GitHub Actions traffic jams)
+    - cron: '42 15 * * 1-5'
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:
