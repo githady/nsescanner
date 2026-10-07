@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
 const fetchStockData = async (symbol) => {
-  const targetUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1y`;
+  const targetUrl = `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1y&_t=${Date.now()}`;
   
   try {
     const response = await fetch(targetUrl, {
@@ -304,7 +304,7 @@ const fetchLatestBhavcopy = async () => {
   for(let i=0; i<7; i++) {
     const pad = (n) => n.toString().padStart(2, '0');
     const dStr = pad(d.getDate()) + pad(d.getMonth()+1) + d.getFullYear();
-    const url = 'https://nsearchives.nseindia.com/products/content/sec_bhavdata_full_' + dStr + '.csv';
+    const url = 'https://nsearchives.nseindia.com/products/content/sec_bhavdata_full_' + dStr + '.csv?t=' + Date.now();
     try {
       const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
       if (res.ok) {
