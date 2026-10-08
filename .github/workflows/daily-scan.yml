@@ -2,8 +2,8 @@ name: Daily NSE Scan
 
 on:
   schedule:
-    # 15:42 UTC is 9:12 PM IST (Ensures NSE/Yahoo data is fully published and avoids GitHub Actions traffic jams)
-    - cron: '42 15 * * 1-5'
+    # 02:47 UTC is 8:17 AM IST (Runs Tuesday-Saturday morning to safely get the previous trading day's finalized data)
+    - cron: '47 2 * * 2-6'
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:
