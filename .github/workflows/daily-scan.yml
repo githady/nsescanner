@@ -2,8 +2,8 @@ name: Daily NSE Scan
 
 on:
   schedule:
-    # 02:47 UTC is 8:17 AM IST (Runs Tuesday-Saturday morning to safely get the previous trading day's finalized data)
-    - cron: '47 2 * * 2-6'
+    # 22:33 UTC is 4:03 AM IST next day (Runs Mon-Fri night UTC = Tue-Sat 4:03 AM IST, deep off-peak to minimize GitHub queue delays)
+    - cron: '33 22 * * 1-5'
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 permissions:
